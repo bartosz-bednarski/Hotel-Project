@@ -33,6 +33,7 @@ module.exports = {
         lightAquaCard: "rgba(48, 119, 171, 0.16)",
         lightRed: "rgba(171, 48, 85, 0.79)",
         grey: "#525250",
+        schemaBackgound: "rgba(255, 255, 255, 0.72)",
       },
       backgroundColor: {
         imageOpacity: "rgba(0, 0, 0, 0.19)",
@@ -43,7 +44,8 @@ module.exports = {
         "hero-rooms": "url('/assets/to-travel-g04925ceb0_1920.jpg')",
         "hero-beach": "url('/assets/seashore-gcfe15f0fd_1920.jpg')",
         "hero-rooms": "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
-
+        "hero-rooms-2": "url('/assets/bed-g3bdefde0c_1920.jpg')",
+        "single-room": "url('/assets/bedroom-g57f6bfa9e_1920.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -52,6 +54,10 @@ module.exports = {
         "10vh": "10vh",
         "90vh": "90vh",
         "510px": "510px",
+        "2vw": "2vw",
+        "4vw": "4vw",
+        "6vw": "6vw",
+        "12vw": "12vw",
       },
       margin: {
         "10vh": "10vh",
@@ -65,6 +71,12 @@ module.exports = {
         "97vw": "97vw",
         "680px": "680px",
         "818px": "818px",
+        "2vw": "2vw",
+        "4vw": "4vw",
+        "6vw": "6vw",
+        "8vw": "8vw",
+        "12vw": "12vw",
+        "24vw": "24vw",
       },
       screens: {
         desktop: "1720px",
