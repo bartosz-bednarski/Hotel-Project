@@ -28,7 +28,7 @@ module.exports = {
       },
       colors: {
         gold: "#FFD700",
-        aquaCard: "rgba(48, 119, 171, 0.61)",
+        aquaCard: "rgba(48, 119, 171, 0.9)",
         aquaButton: "rgba(48, 119, 171, 0.79)",
         lightAquaCard: "rgba(48, 119, 171, 0.16)",
         lightRed: "rgba(171, 48, 85, 0.79)",
