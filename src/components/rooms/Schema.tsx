@@ -1,46 +1,54 @@
+import Apartment from "./schema-items/Apartment";
+import Double from "./schema-items/Double";
+import King from "./schema-items/King";
+import Single from "./schema-items/Single";
+
+const ROOMS = {
+  singleRooms: [{ id: "single-01" }],
+};
 const Schema = () => {
   return (
     <div className="sm:px-10 flex bg-schemaBackgound px-5 py-11 h-auto rounded-3xl w-min justify-center">
       <div className="flex flex-col w-auto">
         <div className="flex flex-row justify-between w-full">
-          <span className="xl:w-6vw xl:h-2vw w-12vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-6vw xl:h-2vw w-12vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
+          <King id="king-01" number="11" />
+          <King id="king-02" number="19" />
         </div>
         <div className="flex flex-row justify-between w-full">
           <div className="flex flex-row xl:w-6vw w-12vw justify-between">
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
+            <Double id="double-01" number="20" />
+            <Double id="double-02" number="18" />
           </div>
           <div className="flex flex-row xl:w-6vw w-12vw justify-between">
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
+            <Double id="double-03" number="12" />
+            <Double id="double-04" number="10" />
           </div>
         </div>
         <div className="flex flex-row justify-between w-full">
           <div className="flex flex-row xl:w-6vw w-12vw justify-between">
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
+            <Double id="double-05" number="21" />
+            <Double id="double-06" number="17" />
           </div>
           <div className="flex flex-row w-auto items-end">
-            <span className="xl:w-4vw  xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-12vw xl:h-2vw w-24vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-4vw  xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
+            <Single id="single-08" number="16" />
+            <Apartment id="apartment-01" number="15" />
+            <Single id="single-09" number="14" />
           </div>
           <div className="flex flex-row xl:w-6vw w-12vw justify-between">
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
-            <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
+            <Double id="double-07" number="13" />
+            <Double id="double-08" number="09" />
           </div>
         </div>
         <div className="flex flex-row items-end w-full">
-          <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-4vw xl:h-2vw w-8vw h-4vw bg-aquaButton rounded-sm border-grey border-2" />
-          <span className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2" />
+          <Double id="double-09" number="22" />
+          <Single id="single-01" number="01" />
+          <Single id="single-02" number="02" />
+          <Single id="single-03" number="03" />
+          <Single id="single-04" number="04" />
+          <Single id="single-05" number="05" />
+          <Single id="single-06" number="06" />
+          <Single id="single-07" number="07" />
+          <Double id="double-10" number="08" />
         </div>
       </div>
     </div>

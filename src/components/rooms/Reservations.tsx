@@ -3,6 +3,9 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import * as calendarStyles from "./calendar.module.css";
 import React, { useEffect } from "react";
+import { useAppDispatch } from "@/store";
+import { schemaActions } from "@/store/schema-slice";
+import { reservationActions } from "@/store/reservations-slice";
 const MONTH = [
   "January",
   "February",
@@ -18,13 +21,16 @@ const MONTH = [
   "December",
 ];
 const Reservations = () => {
+  const dispatch = useAppDispatch();
   const [showCalendar, setShowCalendar] = useState(false);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [value, onChange] = useState([]);
+  const [value, onChange] = useState<Date | any>([]);
+
   useEffect(() => {
     setShowCalendar(false);
     if (value.length > 1) {
+      dispatch(reservationActions.setDateRange(value));
       setCheckIn(`${value[0].getDate()} ${MONTH[value[0].getMonth()]}`);
       setCheckOut(`${value[1].getDate()} ${MONTH[value[1].getMonth()]}`);
     }
@@ -32,8 +38,8 @@ const Reservations = () => {
   console.log(checkIn, checkOut);
   console.log(value);
   return (
-    <div className="box-border flex bg-hero-rooms-2 h-auto">
-      <div className="box-border bg-black bg-opacity-20 h-auto  flex flex-col ">
+    <div className="box-border flex bg-hero-rooms-2 h-auto ">
+      <div className="box-border bg-black bg-opacity-20 h-auto pb-9  flex flex-col ">
         <div className=" xl:flex-row xl:h-screen xl:py-0 xl:px-32 md:px-12 box-border w-full flex flex-col h-auto py-9 px-2  justify-center items-center sm:gap-5 xl:gap-12 gap-20  text-white">
           <div className="flex flex-col ">
             <span className="2xl:text-7xl justify-center sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
@@ -53,10 +59,7 @@ const Reservations = () => {
           <div className="flex flex-col gap-7 w-auto items-center">
             <Schema />
             <div className="xl:p-0 pb-32 flex sm:flex-row flex-col px-0 justify-between font-poppins gap-7 sm:w-full w-full relative">
-              <div
-                className="bg-aquaButton flex flex-col sm:w-full w-full px-8 rounded-3xl "
-                onClick={() => setShowCalendar(true)}
-              >
+              <div className="bg-aquaButton flex flex-col sm:w-full w-full px-6 rounded-3xl justify-center ">
                 {showCalendar && (
                   <div className="bg-aquaButton flex rounded-3xl w-full absolute top-0 left-0">
                     <Calendar
@@ -68,21 +71,32 @@ const Reservations = () => {
                     />
                   </div>
                 )}
-                <span className=" sm:text-4xl text-xl py-4 border-gold border-b-2 text-center">
+                <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl  py-4 border-gold border-b-2 text-center ">
                   {checkIn}
                 </span>
-                <span className="sm:text-2xl text-base text-center py-2">
+                <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
                   Check-in
                 </span>
               </div>
-              <div className="bg-aquaButton flex flex-col  w-full px-8 rounded-3xl">
-                <span className=" sm:text-4xl text-xl py-4 border-gold border-b-2 text-center">
+              <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
+                <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
                   {checkOut}
                 </span>
-                <span className="sm:text-2xl text-base text-center py-2">
+                <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
                   Check-out
                 </span>
               </div>
+              {!showCalendar && (
+                <div
+                  className="bg-aquaButton flex justify-center items-center  w-full px-10 rounded-3xl hover:cursor-pointer"
+                  onClick={() => setShowCalendar(true)}
+                >
+                  <img
+                    src="/assets/calendar-regular-240.png"
+                    className="h-auto"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
