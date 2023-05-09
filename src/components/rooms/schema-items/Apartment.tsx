@@ -1,15 +1,22 @@
-import { useAppDispatch } from "@/store";
-import { reservationActions } from "@/store/reservations-slice";
+import { useAppDispatch, useAppSelector } from "@/store";
+import reservationsSlice, {
+  reservationActions,
+} from "@/store/reservations-slice";
 import { FC, useState } from "react";
 
 const Apartment: FC<{ id: string; number: string }> = (props) => {
   const [showInfo, setShowInfo] = useState(false);
   const dispatch = useAppDispatch();
+  const data = useAppSelector(
+    (state) => state.reservationsReducer.toPaymentData
+  );
   const descriptionHandler = () => {
     setShowInfo(!showInfo);
     dispatch(
       reservationActions.setRooms({ id: props.id, number: props.number })
     );
+
+    console.log(data);
   };
   return (
     <>
