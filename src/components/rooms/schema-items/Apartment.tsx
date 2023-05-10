@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import reservationsSlice, {
   reservationActions,
 } from "@/store/reservations-slice";
+import Link from "next/link";
 import { FC, useState } from "react";
 
 const Apartment: FC<{ id: string; number: string }> = (props) => {
@@ -10,6 +11,7 @@ const Apartment: FC<{ id: string; number: string }> = (props) => {
   const data = useAppSelector(
     (state) => state.reservationsReducer.toPaymentData
   );
+
   const descriptionHandler = () => {
     setShowInfo(!showInfo);
     dispatch(
@@ -29,12 +31,17 @@ const Apartment: FC<{ id: string; number: string }> = (props) => {
             <span className="text-center text-gold font-bold">Apartment</span>
             <span>Room: {props.number}</span>
             <span>Price: 120$</span>
-            <button
+            <Link
+              href="/rooms/payment"
               className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto"
-              onClick={() => dispatch(reservationActions.redirectToPayment())}
             >
-              Reservation
-            </button>
+              <button
+                className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto"
+                onClick={() => dispatch(reservationActions.redirectToPayment())}
+              >
+                Reservation
+              </button>
+            </Link>
           </div>
         )}
       </div>

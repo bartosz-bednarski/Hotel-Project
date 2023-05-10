@@ -34,6 +34,8 @@ module.exports = {
         lightRed: "rgba(171, 48, 85, 0.79)",
         grey: "#525250",
         schemaBackgound: "rgba(255, 255, 255, 0.72)",
+        inputAqua: "#A5CAE4",
+        textGrey: "#EAE8E8",
       },
       backgroundColor: {
         imageOpacity: "rgba(0, 0, 0, 0.19)",
