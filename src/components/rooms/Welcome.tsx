@@ -1,4 +1,6 @@
 const Welcome = () => {
+  const user = process.env.DB_USER;
+  console.log(user);
   return (
     <div className="box-border flex  bg-hero-rooms h-auto ">
       <div className="box-border bg-black bg-opacity-20  h-auto flex flex-col ">
@@ -10,6 +12,7 @@ const Welcome = () => {
             Relax in Italian style and enjoy the beautiful views of the
             Mediterranean Sea from our luxurious hotel rooms just a few steps
             from the sandy beach.
+            <button onClick={() => console.log(user)}>concoleLog</button>
           </span>
         </div>
       </div>

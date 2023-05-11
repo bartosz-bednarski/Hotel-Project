@@ -28,7 +28,7 @@ const Payment = () => {
                 Name
               </label>
               <input
-                className="  w-full bg-gray-200 text-gray-700   rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
+                className="w-full bg-gray-200 text-gray-700   rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
                 placeholder="Your name"
                 {...register("firstName", { required: true })}
               />
@@ -69,7 +69,7 @@ const Payment = () => {
           </form>
         </div>
         <div className="w-3/5 flex flex-col h-full gap-8 items-center justify-end">
-          <div className="flex flex-col bg-aquaCard h-auto w-9/12 p-7 rounded-xl gap-12 shadow-lg">
+          <div className="flex flex-col bg-aquaCard h-auto w-9/12 p-7 rounded-xl gap-12 shadow-lg shadow-gray-600">
             <span className="text-4xl text-gold font-poppins font-medium">
               Hotel Card
             </span>
@@ -95,7 +95,7 @@ const Payment = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-row bg-aquaButton h-auto w-9/12 p-7 rounded-xl gap-16 shadow-lg">
+          <div className="flex flex-row bg-aquaButton h-auto w-9/12 p-7 rounded-xl gap-16 shadow-lg shadow-gray-600">
             <div className="flex flex-col gap-6 w-2/5 text-white">
               <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
                 <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
