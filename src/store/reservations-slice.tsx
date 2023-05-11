@@ -1,18 +1,46 @@
 import { createSlice } from "@reduxjs/toolkit";
 interface reservationsInitialState {
   dateRange: any[];
-  room: { id: string; number: string };
-  toPaymentData: [{ [key: string]: { id: string; number: string } }];
+  room: { id: string; number: string; type: string; price: number };
+  dataToSend: [
+    {
+      [key: string]: {
+        [id: string]: {
+          id: string;
+          number: string;
+          type: string;
+          checkIn: Date;
+          checkOut: Date;
+          price: number;
+          name: string;
+          surname: string;
+          email: string;
+          phoneNumber: number;
+        };
+      };
+    }
+  ];
 }
 const reservationsInitialState = {
   dateRange: [],
   room: {
     id: "",
     number: "",
+    type: "",
+    price: 0,
   },
-  toPaymentData: [
+  dataToSend: [
     {
-      [new Date().toString()]: { id: "", number: "" },
+      [new Date().toString()]: {
+        ["id"]: {
+          id: "",
+          number: "",
+          type: "",
+          checkIn: "",
+          checkOut: "",
+          price: 0,
+        },
+      },
     },
   ],
 };
@@ -32,9 +60,11 @@ const reservations = createSlice({
     setRooms(state, action) {
       state.room.id = action.payload.id;
       state.room.number = action.payload.number;
+      state.room.type = action.payload.type;
+      state.room.price = action.payload.price;
     },
-    redirectToPayment(state) {
-      state.toPaymentData.splice(0);
+    setDataToSend(state, action) {
+      state.dataToSend.splice(0);
       for (let i = 0; i < state.dateRange.length; i++) {
         // let key = state.dateRange[i];
         let key = new Date(state.dateRange[i] - 1)
@@ -42,10 +72,20 @@ const reservations = createSlice({
           .slice(0, 10);
         // key.replaceAll(" ", "");
         // key.slice(0, 13);
-        state.toPaymentData.push({
+        state.dataToSend.push({
           [key]: {
-            id: state.room.id,
-            number: state.room.number,
+            [state.room.id]: {
+              id: state.room.id,
+              number: state.room.number,
+              type: state.room.type,
+              checkIn: state.dateRange[0],
+              checkOut: state.dateRange[state.dateRange.length - 1],
+              price: state.room.price,
+              name: action.payload.name,
+              surname: action.payload.surname,
+              email: action.payload.email,
+              phoneNumber: action.payload.phoneNumber,
+            },
           },
         });
       }

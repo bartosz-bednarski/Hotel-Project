@@ -4,7 +4,6 @@ import Calendar from "react-calendar";
 import * as calendarStyles from "./calendar.module.css";
 import React, { useEffect } from "react";
 import { useAppDispatch } from "@/store";
-import { schemaActions } from "@/store/schema-slice";
 import { reservationActions } from "@/store/reservations-slice";
 const MONTH = [
   "January",

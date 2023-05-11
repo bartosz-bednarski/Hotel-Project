@@ -1,5 +1,10 @@
-import { FormEvent } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { reservationActions } from "@/store/reservations-slice";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/router";
+import { FormEvent, useEffect } from "react";
+import { useForm, SubmitHandler, appendErrors } from "react-hook-form";
+
 interface IFormInput {
   firstName: string;
   secondName: string;
@@ -7,8 +12,41 @@ interface IFormInput {
   phoneNumber: string;
 }
 const Payment = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const dispatch = useAppDispatch();
+  const reduxData = useAppSelector(
+    (item) => item.reservationsReducer.dataToSend
+  );
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    // dispatch(
+    //   reservationActions.setDataToSend({
+    //     name: data.firstName,
+    //     surname: data.secondName,
+    //     email: data.email,
+    //     phoneNumber: data.phoneNumber,
+    //   })
+    // );
+    console.log(data);
+  };
+  const dateRange = useAppSelector(
+    (item) => item.reservationsReducer.dateRange
+  );
+
+  const { push } = useRouter();
+  useEffect(() => {
+    if (dateRange.length < 1) {
+      push("/rooms");
+    }
+  }, [dateRange]);
+  const room = useAppSelector((item) => item.reservationsReducer.room);
+  const checkIn = dateRange[0];
+  const checkOut = dateRange[dateRange.length - 1];
+  const priceTotal =
+    (new Date(checkOut).getDate() - new Date(checkIn).getDate()) * room.price;
   return (
     <div className="flex flex-col h-screen box-border py-10 pl-32 justify-center">
       <div className="flex flex-row w-full   h-auto gap-24">
@@ -23,42 +61,74 @@ const Payment = () => {
             className="flex flex-col w-full  h-auto  items-center gap-10 justify-center"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <span className="flex flex-col w-3/4">
-              <label className="text-black font-poppins text-xl font-normal py-4 w-full">
+            <span className="flex flex-col w-3/4 gap-2">
+              <label className="text-black font-poppins text-xl font-normal w-full">
                 Name
               </label>
               <input
                 className="w-full bg-gray-200 text-gray-700   rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
                 placeholder="Your name"
-                {...register("firstName", { required: true })}
+                {...register("firstName", {
+                  required: true,
+                })}
+                aria-invalid={errors.firstName ? "true" : "false"}
               />
+              {errors.firstName?.type === "required" && (
+                <p className="text-red-500">Enter your first name</p>
+              )}
             </span>
-            <span className="flex flex-col w-3/4">
-              <label className="text-black font-poppins text-xl font-normal py-4">
+            <span className="flex flex-col w-3/4 gap-2">
+              <label className="text-black font-poppins text-xl font-normal">
                 Surname
               </label>
               <input
                 className=" w-full bg-gray-200 text-gray-700 rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
                 {...register("secondName", { required: true })}
+                aria-invalid={errors.secondName ? "true" : "false"}
               />
+              {errors.secondName?.type === "required" && (
+                <p className="text-red-500">Enter your second name</p>
+              )}
             </span>
-            <span className="flex flex-col w-3/4">
-              <label className="text-black font-poppins text-xl font-normal py-4">
+            <span className="flex flex-col w-3/4 gap-2">
+              <label className="text-black font-poppins text-xl font-normal ">
                 E-mail
               </label>
               <input
                 className=" w-full bg-gray-200 text-gray-700  rounded py-3 px-4  leading-tight  focus:bg-white  shadow-sm"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
+                aria-invalid={errors.email ? "true" : "false"}
               />
+              {errors.email?.type === "pattern" && (
+                <p className="text-red-500">Your e-mail is incorrect</p>
+              )}
+              {errors.email?.type === "required" && (
+                <p className="text-red-500">E-mail is required</p>
+              )}
             </span>
-            <span className="flex flex-col w-3/4">
-              <label className="text-black font-poppins text-xl font-normal py-4">
+            <span className="flex flex-col w-3/4 gap-2">
+              <label className="text-black font-poppins text-xl font-normal ">
                 Phone number
               </label>
               <input
+                type="number"
                 className=" w-full bg-gray-200 text-gray-700 rounded py-3 px-4  leading-tight  focus:bg-white  shadow-sm"
-                {...register("phoneNumber", { required: true })}
+                {...register("phoneNumber", {
+                  required: true,
+                  minLength: 9,
+                })}
+                aria-invalid={errors.phoneNumber ? "true" : "false"}
               />
+              {errors.phoneNumber?.type === "required" && (
+                <p className="text-red-500">Phone number is required</p>
+              )}
+              {errors.phoneNumber?.type === "minLength" && (
+                <p className="text-red-500">Invalid phone number</p>
+              )}
             </span>
             <button
               className="bg-aquaButton py-3 px-4 w-3/4 text-white font-poppins text-xl font-normal rounded-3xl shadow-sm"
@@ -77,10 +147,10 @@ const Payment = () => {
               <img src="/assets/logo.svg" className="2xl:w-20 w-12" />
               <div className="flex flex-col gap-4 text-right">
                 <span className="text-2xl font-poppins font-normal text-white">
-                  Room type: Apartment
+                  Room type: {room.type}
                 </span>
                 <span className="text-2xl font-poppins font-normal text-white">
-                  Room number: 26
+                  Room number: {room.number}
                 </span>
               </div>
             </div>
@@ -99,15 +169,17 @@ const Payment = () => {
             <div className="flex flex-col gap-6 w-2/5 text-white">
               <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
                 <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
-                  12 may
+                  {new Date(checkIn).getDate() - 1}
+                  {new String(checkIn).slice(3, 7)}
                 </span>
                 <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
-                  Check-out
+                  Check-in
                 </span>
               </div>
               <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
                 <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
-                  12 may
+                  {new Date(checkOut).getDate() - 1}
+                  {new String(checkOut).slice(3, 7)}
                 </span>
                 <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
                   Check-out
@@ -123,26 +195,32 @@ const Payment = () => {
                   Room Type
                 </span>
                 <span className="text-2xl font-normal text-white">
-                  Apartment
+                  {room.type}
                 </span>
               </div>
               <div className="w-full flex flex-row justify-between">
                 <span className="text-2xl font-normal text-textGrey">
                   Room Number
                 </span>
-                <span className="text-2xl font-normal text-white">26</span>
+                <span className="text-2xl font-normal text-white">
+                  {room.number}
+                </span>
               </div>
               <div className="w-full flex flex-row justify-between">
                 <span className="text-2xl font-normal text-textGrey">
                   Price per night
                 </span>
-                <span className="text-2xl font-normal text-white">100$</span>
+                <span className="text-2xl font-normal text-white">
+                  {room.price}$
+                </span>
               </div>
               <div className="w-full flex flex-row justify-between border-gold border-t-2 py-3">
                 <span className="text-2xl font-normal text-textGrey">
                   Total
                 </span>
-                <span className="text-2xl font-normal text-white">100$</span>
+                <span className="text-2xl font-normal text-white">
+                  {priceTotal}$
+                </span>
               </div>
             </div>
           </div>
