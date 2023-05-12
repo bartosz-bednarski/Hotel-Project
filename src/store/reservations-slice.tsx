@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 interface reservationsInitialState {
-  dateRange: any[];
+  dateRange: Date[];
   room: { id: string; number: string; type: string; price: number };
   dataToSend: [
     {
@@ -12,10 +12,10 @@ interface reservationsInitialState {
           checkIn: Date;
           checkOut: Date;
           price: number;
-          name: string;
-          surname: string;
-          email: string;
-          phoneNumber: number;
+          // name: string;
+          // surname: string;
+          // email: string;
+          // phoneNumber: number;
         };
       };
     }
@@ -63,33 +63,33 @@ const reservations = createSlice({
       state.room.type = action.payload.type;
       state.room.price = action.payload.price;
     },
-    setDataToSend(state, action) {
-      state.dataToSend.splice(0);
-      for (let i = 0; i < state.dateRange.length; i++) {
-        // let key = state.dateRange[i];
-        let key = new Date(state.dateRange[i] - 1)
-          .toLocaleString()
-          .slice(0, 10);
-        // key.replaceAll(" ", "");
-        // key.slice(0, 13);
-        state.dataToSend.push({
-          [key]: {
-            [state.room.id]: {
-              id: state.room.id,
-              number: state.room.number,
-              type: state.room.type,
-              checkIn: state.dateRange[0],
-              checkOut: state.dateRange[state.dateRange.length - 1],
-              price: state.room.price,
-              name: action.payload.name,
-              surname: action.payload.surname,
-              email: action.payload.email,
-              phoneNumber: action.payload.phoneNumber,
-            },
-          },
-        });
-      }
-    },
+    // setDataToSend(state, action) {
+    //   state.dataToSend.splice(0);
+    //   for (let i = 0; i < state.dateRange.length; i++) {
+    //     // let key = state.dateRange[i];
+    //     let key = new Date(state.dateRange[i] - 1)
+    //       .toLocaleString()
+    //       .slice(0, 10);
+    //     // key.replaceAll(" ", "");
+    //     // key.slice(0, 13);
+    //     state.dataToSend.push({
+    //       [key]: {
+    //         [state.room.id]: {
+    //           id: state.room.id,
+    //           number: state.room.number,
+    //           type: state.room.type,
+    //           checkIn: state.dateRange[0],
+    //           checkOut: state.dateRange[state.dateRange.length - 1],
+    //           price: state.room.price,
+    //           // name: action.payload.name,
+    //           // surname: action.payload.surname,
+    //           // email: action.payload.email,
+    //           // phoneNumber: action.payload.phoneNumber,
+    //         },
+    //       },
+    //     });
+    //   }
+    // },
   },
 });
 

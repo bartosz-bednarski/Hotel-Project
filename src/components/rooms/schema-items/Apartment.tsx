@@ -38,10 +38,7 @@ const Apartment: FC<{ id: string; number: string }> = (props) => {
               href="/rooms/payment"
               className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto"
             >
-              <button
-                className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto"
-                onClick={() => dispatch(reservationActions.setDataToSend())}
-              >
+              <button className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto">
                 Reservation
               </button>
             </Link>

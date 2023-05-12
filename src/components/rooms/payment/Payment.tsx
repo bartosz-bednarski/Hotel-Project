@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { reservationActions } from "@/store/reservations-slice";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/router";
-import { FormEvent, useEffect } from "react";
+import { FC, FormEvent, useEffect } from "react";
 import { useForm, SubmitHandler, appendErrors } from "react-hook-form";
 
 interface IFormInput {
@@ -11,17 +11,79 @@ interface IFormInput {
   email: string;
   phoneNumber: string;
 }
-const Payment = () => {
+interface onPayment {
+  dates: [
+    {
+      _id: Date | String;
+      rooms: [
+        {
+          key: {
+            id: string;
+            number: string;
+            type: string;
+            price: number;
+            firstName: string;
+            secondName: string;
+            email: string;
+            phoneNumber: string;
+          };
+        }
+      ];
+    }
+  ];
+}
+const Payment: FC<{
+  onPayment: (paymentData: onPayment) => any;
+}> = (props) => {
   const dispatch = useAppDispatch();
   const reduxData = useAppSelector(
     (item) => item.reservationsReducer.dataToSend
   );
+  const dateRange = useAppSelector(
+    (item) => item.reservationsReducer.dateRange
+  );
+  const room = useAppSelector((item) => item.reservationsReducer.room);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    const dates: any = [];
+    for (let i = 0; i < dateRange.length; i++) {
+      dates.push({
+        _id: dateRange[i],
+        rooms: [
+          {
+            [room.id]: {
+              id: room.id,
+              number: room.number,
+              type: room.type,
+              price: room.price,
+              firstName: data.firstName,
+              secondName: data.secondName,
+              email: data.email,
+              phoneNumber: data.phoneNumber,
+            },
+          },
+        ],
+      });
+    }
+    console.log(dates);
+    props.onPayment(
+      dates
+      //   {
+      //   dateRange: dateRange,
+      //   id: room.id,
+      //   number: room.number,
+      //   type: room.type,
+      //   price: room.price,
+      //   firstName: data.firstName,
+      //   secondName: data.secondName,
+      //   email: data.email,
+      //   phoneNumber: data.phoneNumber,
+      // }
+    );
     // dispatch(
     //   reservationActions.setDataToSend({
     //     name: data.firstName,
@@ -32,9 +94,6 @@ const Payment = () => {
     // );
     console.log(data);
   };
-  const dateRange = useAppSelector(
-    (item) => item.reservationsReducer.dateRange
-  );
 
   const { push } = useRouter();
   useEffect(() => {
@@ -42,7 +101,7 @@ const Payment = () => {
       push("/rooms");
     }
   }, [dateRange]);
-  const room = useAppSelector((item) => item.reservationsReducer.room);
+
   const checkIn = dateRange[0];
   const checkOut = dateRange[dateRange.length - 1];
   const priceTotal =
