@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Reservations from "./Reservations";
 import Room from "./Room";
 import Welcome from "./Welcome";
@@ -26,12 +27,20 @@ const ROOMS_OFERT = [
       "Book an apartment in Sapphire Palace and enjoy an unforgettable stay in comfortable and luxurious conditions.",
     price: "Price 120$ per night",
   },
+  {
+    img: "/assets/pexels-max-rahubovskiy-7546724.jpg",
+    title: "King Room",
+    text: "A room with a king-size bed and a sea view at Sapphire Palace is an excellent choice for those seeking to combine luxury and stunning views. Equipped with high-quality furnishings and elegantly styled, this room offers not only a comfortable sleep but also unforgettable visual experiences. From the large and cozy king-size bed, you can indulge in spectacular views of the azure waters of the Mediterranean Sea without even leaving the room. Additionally, the room is equipped with all necessary amenities, such as air conditioning, a flat-screen TV, and satellite channels, to ensure your comfort and entertainment. By spending time in this room, you'll merge relaxation with an incredible sea view, creating unforgettable memories of your stay at Sapphire Palace.",
+    sentence:
+      "Discover the luxury and beauty of this room with a king-size bed and a sea view at Sapphire Palace, where you can enjoy tranquility and unforgettable views of the Mediterranean Sea. The harmony between comfort and nature awaits you in this charming room.",
+    price: "Price 100$ per night",
+  },
 ];
-const Rooms = () => {
+const Rooms: FC<{ onReservations: (value: Date[]) => any }> = (props) => {
   return (
     <div className="box-border h-auto w-auto flex flex-col">
       <Welcome />
-      <Reservations />
+      <Reservations onReservations={props.onReservations} />
       {ROOMS_OFERT.map((item) => {
         return (
           <Room

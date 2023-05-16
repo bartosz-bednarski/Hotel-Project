@@ -1,14 +1,54 @@
+import { useAppSelector } from "@/store";
 import Apartment from "./schema-items/Apartment";
 import Double from "./schema-items/Double";
 import King from "./schema-items/King";
 import Single from "./schema-items/Single";
 
-const ROOMS = {
-  singleRooms: [{ id: "single-01" }],
-};
+const ROOMS = [
+  {
+    id: "single-01",
+    status: "free",
+  },
+  {
+    id: "single-02",
+    status: "free",
+  },
+  {
+    id: "single-03",
+    status: "free",
+  },
+  {
+    id: "single-04",
+    status: "free",
+  },
+  {
+    id: "single-05",
+    status: "free",
+  },
+  {
+    id: "single-06",
+    status: "free",
+  },
+  {
+    id: "apartment-01",
+    status: "free",
+  },
+];
 const Schema = () => {
+  const roomsSelector = useAppSelector(
+    (item) => item.reservationsReducer.actualData
+  );
+
+  const roomsArr = [];
+  for (let i = 0; i < roomsSelector.length; i++) {
+    roomsArr.push(roomsSelector[i].rooms);
+  }
+  // const selection = roomsArr.find((item) => item.id);
+  // console.log(selection);
+  console.log(...roomsArr);
+  console.log(ROOMS.find((item) => item.id === "single-06"));
   return (
-    <div className="sm:px-10 flex bg-schemaBackgound px-5 py-11 h-auto rounded-3xl w-min justify-center">
+    <div className="sm:px-10 flex bg-schemaBackgound relative px-5 py-11 h-auto rounded-3xl w-min justify-center">
       <div className="flex flex-col w-auto">
         <div className="flex flex-row justify-between w-full">
           <King id="king-01" number="11" />
@@ -31,7 +71,11 @@ const Schema = () => {
           </div>
           <div className="flex flex-row w-auto items-end">
             <Single id="single-08" number="16" />
-            <Apartment id="apartment-01" number="15" />
+            <Apartment
+              id="apartment-01"
+              number="15"
+              status={ROOMS.find((item) => item.id === "apartment")}
+            />
             <Single id="single-09" number="14" />
           </div>
           <div className="flex flex-row xl:w-6vw w-12vw justify-between">

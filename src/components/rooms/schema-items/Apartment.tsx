@@ -8,7 +8,6 @@ import { FC, useState } from "react";
 const Apartment: FC<{ id: string; number: string }> = (props) => {
   const [showInfo, setShowInfo] = useState(false);
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.reservationsReducer.dataToSend);
 
   const descriptionHandler = () => {
     setShowInfo(!showInfo);
@@ -20,31 +19,49 @@ const Apartment: FC<{ id: string; number: string }> = (props) => {
         price: 120,
       })
     );
-
-    console.log(data);
   };
   return (
     <>
       <div
-        className="xl:w-12vw xl:h-2vw w-24vw h-4vw bg-aquaButton rounded-sm border-grey border-2 relative hover:cursor-pointer"
+        className="xl:w-12vw xl:h-2vw w-24vw h-4vw bg-aquaButton rounded-sm border-grey border-2  hover: cursor-pointer"
         onClick={descriptionHandler}
-      >
-        {showInfo && (
-          <div className="absolute bottom-10 left-0 h-auto sm:w-full w-auto bg-aquaCard rounded-xl shad flex flex-col gap-2 p-3 ">
-            <span className="text-center text-gold font-bold">Apartment</span>
-            <span>Room: {props.number}</span>
-            <span>Price: 120$</span>
-            <Link
-              href="/rooms/payment"
-              className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto"
-            >
-              <button className="bg-white w-max px-5 rounded-lg text-aquaCard mx-auto">
-                Reservation
-              </button>
-            </Link>
+      />
+      {showInfo && (
+        <div className="absolute top-0 h-full left-0  sm:w-full  bg-white rounded-xl w-full block  bg-apartment bg-cover ">
+          <div className="flex flex-col h-full w-full bg-imageOpacity gap-5 py-5 px-8 justify-center items-center rounded-xl">
+            <div className="w-9/12 h-3/5 rounded-3xl bg-imageOpacity mx-auto "></div>
+
+            <div className="flex flex-col w-9/12 gap-2 items-end ">
+              <div className="flex flex-row text-xl justify-between w-1/2">
+                <span className="text-textGrey">Room type</span>
+                <span className="text-white">Apartment</span>
+              </div>
+              <div className="flex flex-row text-xl justify-between w-1/2">
+                <span className="text-textGrey">Room number</span>
+                <span className="text-white">{props.number}</span>
+              </div>
+              <div className="flex flex-row text-xl justify-between w-1/2">
+                <span className="text-textGrey">Price</span>
+                <span className="text-white">120$</span>
+              </div>
+              <div className="flex flex-row w-1/2">
+                <button
+                  className=" w-max px-5 py-2 rounded-lg font-poppins font-normal text-white bg-aquaButton mx-auto"
+                  onClick={descriptionHandler}
+                >
+                  Decline
+                </button>
+                <Link
+                  href="/rooms/payment"
+                  className="text-white bg-aquaButton font-poppins font-normal py-2 w-max px-5 rounded-lg mx-auto"
+                >
+                  Reservation
+                </Link>
+              </div>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };

@@ -20,6 +20,25 @@ interface reservationsInitialState {
       };
     }
   ];
+  actualData: [
+    {
+      _id: string;
+      rooms: [
+        {
+          id: string;
+          number: string;
+          type: string;
+          checkIn: Date;
+          checkOut: Date;
+          price: number;
+          // name: string;
+          // surname: string;
+          // email: string;
+          // phoneNumber: number;
+        }
+      ];
+    }
+  ];
 }
 const reservationsInitialState = {
   dateRange: [],
@@ -43,6 +62,21 @@ const reservationsInitialState = {
       },
     },
   ],
+  actualData: [
+    {
+      _id: new Date().toString(),
+      rooms: [
+        {
+          id: "",
+          number: "",
+          type: "",
+          checkIn: "",
+          checkOut: "",
+          price: 0,
+        },
+      ],
+    },
+  ],
 };
 const reservations = createSlice({
   name: "reservations",
@@ -54,7 +88,7 @@ const reservations = createSlice({
       let endDate = new Date(action.payload[action.payload.length - 1]);
       while (startDate < endDate) {
         startDate.setDate(startDate.getDate() + 1);
-        state.dateRange.push(new Date(startDate));
+        state.dateRange.push(new Date(startDate)).toString();
       }
     },
     setRooms(state, action) {
@@ -62,6 +96,9 @@ const reservations = createSlice({
       state.room.number = action.payload.number;
       state.room.type = action.payload.type;
       state.room.price = action.payload.price;
+    },
+    setActualData(state, action) {
+      state.actualData = action.payload.body;
     },
     // setDataToSend(state, action) {
     //   state.dataToSend.splice(0);

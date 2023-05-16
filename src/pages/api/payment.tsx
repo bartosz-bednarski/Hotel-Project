@@ -8,10 +8,33 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kl5um6i.mongodb.net/?retryWrites=true&w=majority`
     );
     const db = client.db("Hotel");
-    const dates = db.collection("Dates");
-    const result1 = await dates.insertMany(data);
+    const datesCollection = db.collection("Dates");
+    const dates = await datesCollection.insertMany(data);
 
-    console.log(result1);
+    console.log(dates);
+    client.close();
+
+    res.status(201).json({ message: "Data inserted!" });
+  }
+  if (req.method === "UPDATE") {
+    const data = req.body;
+    console.log(data);
+    const updateone = data.map((item) => item._id);
+    console.log("updateone", ...updateone);
+    const client = await MongoClient.connect(
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kl5um6i.mongodb.net/?retryWrites=true&w=majority`
+    );
+    const db = client.db("Hotel");
+    const datesCollection = db.collection("Dates");
+    for (let i = 0; i < data.length; i++) {
+      const dates = await datesCollection.updateOne(
+        { _id: data[i]._id },
+        { $set: { rooms: data[i].rooms } }
+      );
+
+      console.log(dates);
+    }
+
     client.close();
 
     res.status(201).json({ message: "Data inserted!" });

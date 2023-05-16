@@ -13,16 +13,30 @@ interface paymentData {
 }
 const PaymentPage = () => {
   const router = useRouter();
-  const onPayment = async (paymentData: paymentData) => {
-    const response = await fetch("/api/payment", {
-      method: "POST",
-      body: JSON.stringify(paymentData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    console.log(data);
+  const onPayment = async (dates: any, duplicates: any) => {
+    if (dates.length > 0) {
+      const responsePost = await fetch("/api/payment", {
+        method: "POST",
+        body: JSON.stringify(dates),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const dataPost = await responsePost.json();
+      console.log(dataPost);
+    }
+    if (duplicates.length > 0) {
+      const responseUpdate = await fetch("/api/payment", {
+        method: "UPDATE",
+        body: JSON.stringify(duplicates),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const dataUpdate = await responseUpdate;
+      console.log(dataUpdate);
+    }
+
     router.push("/");
   };
   return <Payment onPayment={onPayment} />;

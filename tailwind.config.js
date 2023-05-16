@@ -48,6 +48,11 @@ module.exports = {
         "hero-rooms": "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
         "hero-rooms-2": "url('/assets/bed-g3bdefde0c_1920.jpg')",
         "single-room": "url('/assets/bedroom-g57f6bfa9e_1920.jpg')",
+        "king-room": "url('/assets/hotel-room-g39ed91d20_1920.jpg')",
+        "double-room": "url('/assets/pexels-max-rahubovskiy-7546724.jpg')",
+        reception: "url('/assets/lobby-g165055a51_1920.jpg')",
+
+        apartment: "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

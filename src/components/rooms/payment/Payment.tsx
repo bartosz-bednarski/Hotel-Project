@@ -35,43 +35,64 @@ interface onPayment {
 const Payment: FC<{
   onPayment: (paymentData: onPayment) => any;
 }> = (props) => {
-  const dispatch = useAppDispatch();
-  const reduxData = useAppSelector(
-    (item) => item.reservationsReducer.dataToSend
-  );
+  // const dispatch = useAppDispatch();
+  // const reduxData = useAppSelector(
+  //   (item) => item.reservationsReducer.dataToSend
+  // );
   const dateRange = useAppSelector(
     (item) => item.reservationsReducer.dateRange
   );
   const room = useAppSelector((item) => item.reservationsReducer.room);
+  const actualData = useAppSelector(
+    (item) => item.reservationsReducer.actualData
+  );
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const dates: any = [];
+    const dates: any[] = [];
     for (let i = 0; i < dateRange.length; i++) {
       dates.push({
-        _id: dateRange[i],
+        _id: new Date(dateRange[i]).toISOString(),
         rooms: [
           {
-            [room.id]: {
-              id: room.id,
-              number: room.number,
-              type: room.type,
-              price: room.price,
-              firstName: data.firstName,
-              secondName: data.secondName,
-              email: data.email,
-              phoneNumber: data.phoneNumber,
-            },
+            id: room.id,
+            number: room.number,
+            type: room.type,
+            price: room.price,
+            firstName: data.firstName,
+            secondName: data.secondName,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
           },
         ],
       });
     }
+    ///ZNALEZC DUPLIKATY
+    const duplicates = [];
+    for (let x = 0; x < dates.length; x++) {
+      for (let j = 0; j < actualData.length; j++) {
+        if (dates[x]._id === actualData[j]._id) {
+          duplicates.push({
+            _id: dates[x]._id,
+            rooms: dates[x].rooms.concat(...actualData[j].rooms),
+          });
+          dates.splice(x, 1);
+          // duplicates.rooms.push(actualData[j].rooms);
+          console.log("hello");
+          // actualData[j].rooms.push(dates[i]._id.rooms);
+        }
+      }
+    }
+    console.log(duplicates);
+    console.log(actualData);
     console.log(dates);
     props.onPayment(
-      dates
+      dates,
+      duplicates
+
       //   {
       //   dateRange: dateRange,
       //   id: room.id,
@@ -107,7 +128,7 @@ const Payment: FC<{
   const priceTotal =
     (new Date(checkOut).getDate() - new Date(checkIn).getDate()) * room.price;
   return (
-    <div className="flex flex-col h-screen box-border py-10 pl-32 justify-center">
+    <div className="flex flex-col h-screen box-border py-10 pl-32 justify-center bg-reception bg-cover">
       <div className="flex flex-row w-full   h-auto gap-24">
         <div className="flex flex-col w-2/5  h-auto  items-center gap-10 justify-center">
           <span className="2xl:text-7xl justify-end sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
@@ -121,7 +142,7 @@ const Payment: FC<{
             onSubmit={handleSubmit(onSubmit)}
           >
             <span className="flex flex-col w-3/4 gap-2">
-              <label className="text-black font-poppins text-xl font-normal w-full">
+              <label className="text-white font-poppins text-xl font-normal w-full">
                 Name
               </label>
               <input
@@ -137,7 +158,7 @@ const Payment: FC<{
               )}
             </span>
             <span className="flex flex-col w-3/4 gap-2">
-              <label className="text-black font-poppins text-xl font-normal">
+              <label className="text-white font-poppins text-xl font-normal">
                 Surname
               </label>
               <input
@@ -150,7 +171,7 @@ const Payment: FC<{
               )}
             </span>
             <span className="flex flex-col w-3/4 gap-2">
-              <label className="text-black font-poppins text-xl font-normal ">
+              <label className="text-white font-poppins text-xl font-normal ">
                 E-mail
               </label>
               <input
@@ -170,7 +191,7 @@ const Payment: FC<{
               )}
             </span>
             <span className="flex flex-col w-3/4 gap-2">
-              <label className="text-black font-poppins text-xl font-normal ">
+              <label className="text-white font-poppins text-xl font-normal ">
                 Phone number
               </label>
               <input

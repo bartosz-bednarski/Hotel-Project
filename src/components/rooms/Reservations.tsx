@@ -1,5 +1,5 @@
 import Schema from "./Schema";
-import { useState } from "react";
+import { FC, useState } from "react";
 import Calendar from "react-calendar";
 import * as calendarStyles from "./calendar.module.css";
 import React, { useEffect } from "react";
@@ -19,13 +19,14 @@ const MONTH = [
   "November",
   "December",
 ];
-const Reservations = () => {
+const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
+  props
+) => {
   const dispatch = useAppDispatch();
   const [showCalendar, setShowCalendar] = useState(false);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [value, onChange] = useState<Date | any>([]);
-
   useEffect(() => {
     setShowCalendar(false);
     if (value.length > 1) {
@@ -33,6 +34,18 @@ const Reservations = () => {
       setCheckIn(`${value[0].getDate()} ${MONTH[value[0].getMonth()]}`);
       setCheckOut(`${value[1].getDate()} ${MONTH[value[1].getMonth()]}`);
     }
+    const datesRange = [];
+    let startDate = new Date(value[0]);
+    let endDate = new Date(value[value.length - 1]);
+    while (startDate < endDate) {
+      startDate.setDate(startDate.getDate() + 1);
+      datesRange.push(new Date(startDate));
+    }
+    const getData = async (datesRange: Date[]) => {
+      const setData = await props.onReservations(datesRange);
+      dispatch(reservationActions.setActualData(await setData));
+    };
+    getData(datesRange);
   }, [value]);
   console.log(checkIn, checkOut);
   console.log(value);
