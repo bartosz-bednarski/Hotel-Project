@@ -14,7 +14,8 @@ interface paymentData {
 const PaymentPage = () => {
   const router = useRouter();
   const onPayment = async (dates: any, duplicates: any) => {
-    if (dates.length > 0) {
+    console.log(duplicates, typeof duplicates[0]);
+    if (dates[0] != undefined) {
       const responsePost = await fetch("/api/payment", {
         method: "POST",
         body: JSON.stringify(dates),
@@ -24,16 +25,15 @@ const PaymentPage = () => {
       });
       const dataPost = await responsePost.json();
       console.log(dataPost);
-    }
-    if (duplicates.length > 0) {
+    } else if (duplicates[0] != undefined) {
       const responseUpdate = await fetch("/api/payment", {
-        method: "UPDATE",
+        method: "PUT",
         body: JSON.stringify(duplicates),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      const dataUpdate = await responseUpdate;
+      const dataUpdate = await responseUpdate.json();
       console.log(dataUpdate);
     }
 

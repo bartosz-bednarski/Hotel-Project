@@ -1,31 +1,27 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const client = await MongoClient.connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kl5um6i.mongodb.net/?retryWrites=true&w=majority`
+  );
+  const db = client.db("Hotel");
+  const datesCollection = db.collection("Dates");
   if (req.method === "POST") {
     const data = req.body;
-    console.log(data);
-    const client = await MongoClient.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kl5um6i.mongodb.net/?retryWrites=true&w=majority`
-    );
-    const db = client.db("Hotel");
-    const datesCollection = db.collection("Dates");
+    console.log(data, "Hello");
+
     const dates = await datesCollection.insertMany(data);
 
     console.log(dates);
-    client.close();
 
     res.status(201).json({ message: "Data inserted!" });
   }
-  if (req.method === "UPDATE") {
+  if (req.method === "PUT") {
     const data = req.body;
-    console.log(data);
+    console.log(data, req.method);
     const updateone = data.map((item) => item._id);
     console.log("updateone", ...updateone);
-    const client = await MongoClient.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.kl5um6i.mongodb.net/?retryWrites=true&w=majority`
-    );
-    const db = client.db("Hotel");
-    const datesCollection = db.collection("Dates");
+
     for (let i = 0; i < data.length; i++) {
       const dates = await datesCollection.updateOne(
         { _id: data[i]._id },
@@ -35,9 +31,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       console.log(dates);
     }
 
-    client.close();
-
     res.status(201).json({ message: "Data inserted!" });
   }
+  client.close();
 }
 export default handler;
