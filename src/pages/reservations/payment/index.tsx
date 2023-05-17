@@ -1,24 +1,16 @@
 import Payment from "@/components/rooms/payment/Payment";
 import { useRouter } from "next/router";
-interface paymentData {
-  dateRange: never[];
-  id: string;
-  number: string;
-  type: string;
-  price: number;
-  firstName: string;
-  secondName: string;
-  email: string;
-  phoneNumber: string;
-}
+import { uniqueDates, duplicates } from "@/types/payment";
 const PaymentPage = () => {
   const router = useRouter();
-  const onPayment = async (dates: any, duplicates: any) => {
-    console.log(duplicates, typeof duplicates[0]);
-    if (dates[0] != undefined) {
+  const onPayment = async (
+    uniqueDates: uniqueDates | any,
+    duplicates: duplicates | any
+  ) => {
+    if (uniqueDates[0] != undefined) {
       const responsePost = await fetch("/api/payment", {
         method: "POST",
-        body: JSON.stringify(dates),
+        body: JSON.stringify(uniqueDates),
         headers: {
           "Content-Type": "application/json",
         },

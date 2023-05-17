@@ -1,46 +1,7 @@
+import { reservationsInitialState } from "@/types/reservations-redux";
 import { createSlice } from "@reduxjs/toolkit";
-interface reservationsInitialState {
-  dateRange: Date[];
-  room: { id: string; number: string; type: string; price: number };
-  dataToSend: [
-    {
-      [key: string]: {
-        [id: string]: {
-          id: string;
-          number: string;
-          type: string;
-          checkIn: Date;
-          checkOut: Date;
-          price: number;
-          // name: string;
-          // surname: string;
-          // email: string;
-          // phoneNumber: number;
-        };
-      };
-    }
-  ];
-  actualData: [
-    {
-      _id: string;
-      rooms: [
-        {
-          id: string;
-          number: string;
-          type: string;
-          checkIn: Date;
-          checkOut: Date;
-          price: number;
-          // name: string;
-          // surname: string;
-          // email: string;
-          // phoneNumber: number;
-        }
-      ];
-    }
-  ];
-}
-const reservationsInitialState = {
+
+const reservationsInitialState: reservationsInitialState = {
   dateRange: [],
   room: {
     id: "",
@@ -48,21 +9,7 @@ const reservationsInitialState = {
     type: "",
     price: 0,
   },
-  dataToSend: [
-    {
-      [new Date().toString()]: {
-        ["id"]: {
-          id: "",
-          number: "",
-          type: "",
-          checkIn: "",
-          checkOut: "",
-          price: 0,
-        },
-      },
-    },
-  ],
-  actualData: [
+  actualReservationsForDateRange: [
     {
       _id: new Date().toString(),
       rooms: [
@@ -70,11 +17,104 @@ const reservationsInitialState = {
           id: "",
           number: "",
           type: "",
-          checkIn: "",
-          checkOut: "",
           price: 0,
+          firstName: "",
+          secondName: "",
+          email: "",
+          phoneNumber: "",
         },
       ],
+    },
+  ],
+  occupiedRooms: [],
+  roomsForSchema: [
+    {
+      id: "single-01",
+      status: "free",
+    },
+    {
+      id: "single-02",
+      status: "free",
+    },
+    {
+      id: "single-03",
+      status: "free",
+    },
+    {
+      id: "single-04",
+      status: "free",
+    },
+    {
+      id: "single-05",
+      status: "free",
+    },
+    {
+      id: "single-06",
+      status: "free",
+    },
+    {
+      id: "single-07",
+      status: "free",
+    },
+    {
+      id: "single-08",
+      status: "free",
+    },
+    {
+      id: "single-09",
+      status: "free",
+    },
+    {
+      id: "double-01",
+      status: "free",
+    },
+    {
+      id: "double-02",
+      status: "free",
+    },
+    {
+      id: "double-03",
+      status: "free",
+    },
+    {
+      id: "double-04",
+      status: "free",
+    },
+    {
+      id: "double-05",
+      status: "free",
+    },
+    {
+      id: "double-06",
+      status: "free",
+    },
+    {
+      id: "double-07",
+      status: "free",
+    },
+    {
+      id: "double-08",
+      status: "free",
+    },
+    {
+      id: "double-09",
+      status: "free",
+    },
+    {
+      id: "double-10",
+      status: "free",
+    },
+    {
+      id: "king-01",
+      status: "free",
+    },
+    {
+      id: "king-02",
+      status: "free",
+    },
+    {
+      id: "apartment-01",
+      status: "free",
     },
   ],
 };
@@ -83,6 +123,7 @@ const reservations = createSlice({
   initialState: reservationsInitialState,
   reducers: {
     setDateRange(state, action) {
+      state.roomsForSchema = reservationsInitialState.roomsForSchema;
       state.dateRange.splice(0);
       let startDate = new Date(action.payload[0]);
       let endDate = new Date(action.payload[action.payload.length - 1]);
@@ -97,36 +138,25 @@ const reservations = createSlice({
       state.room.type = action.payload.type;
       state.room.price = action.payload.price;
     },
-    setActualData(state, action) {
-      state.actualData = action.payload.body;
+    setActualReservationsForDateRange(state, action) {
+      state.actualReservationsForDateRange = action.payload.body;
+      const allRooms = [];
+      for (let i = 0; i < action.payload.body.length; i++) {
+        action.payload.body[i].rooms;
+        for (let j = 0; j < action.payload.body[i].rooms.length; j++) {
+          allRooms.push(action.payload.body[i].rooms[j].id);
+        }
+      }
+      const uniq = [...new Set(allRooms)];
+      state.occupiedRooms = uniq;
+      for (let i = 0; i < state.roomsForSchema.length; i++) {
+        for (let j = 0; j < uniq.length; j++) {
+          if (state.roomsForSchema[i].id === uniq[j]) {
+            state.roomsForSchema[i].status = "occupied";
+          }
+        }
+      }
     },
-    // setDataToSend(state, action) {
-    //   state.dataToSend.splice(0);
-    //   for (let i = 0; i < state.dateRange.length; i++) {
-    //     // let key = state.dateRange[i];
-    //     let key = new Date(state.dateRange[i] - 1)
-    //       .toLocaleString()
-    //       .slice(0, 10);
-    //     // key.replaceAll(" ", "");
-    //     // key.slice(0, 13);
-    //     state.dataToSend.push({
-    //       [key]: {
-    //         [state.room.id]: {
-    //           id: state.room.id,
-    //           number: state.room.number,
-    //           type: state.room.type,
-    //           checkIn: state.dateRange[0],
-    //           checkOut: state.dateRange[state.dateRange.length - 1],
-    //           price: state.room.price,
-    //           // name: action.payload.name,
-    //           // surname: action.payload.surname,
-    //           // email: action.payload.email,
-    //           // phoneNumber: action.payload.phoneNumber,
-    //         },
-    //       },
-    //     });
-    //   }
-    // },
   },
 });
 

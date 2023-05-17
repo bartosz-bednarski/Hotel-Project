@@ -1,7 +1,8 @@
 import { FC } from "react";
-import Reservations from "./Reservations";
+import Reservations from "../reservations/Reservations";
 import Room from "./Room";
 import Welcome from "./Welcome";
+import Invitation from "./Invitation";
 const ROOMS_OFERT = [
   {
     img: "/assets/bedroom-g57f6bfa9e_1920.jpg",
@@ -36,11 +37,12 @@ const ROOMS_OFERT = [
     price: "Price 100$ per night",
   },
 ];
-const Rooms: FC<{ onReservations: (value: Date[]) => any }> = (props) => {
+const Rooms: FC = () => {
   return (
     <div className="box-border h-auto w-auto flex flex-col">
       <Welcome />
-      <Reservations onReservations={props.onReservations} />
+      <Invitation />
+      {/* <Reservations onReservations={props.onReservations} /> */}
       {ROOMS_OFERT.map((item) => {
         return (
           <Room

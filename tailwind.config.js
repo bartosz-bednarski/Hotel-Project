@@ -63,7 +63,7 @@ module.exports = {
         "510px": "510px",
         "2vw": "2vw",
         "4vw": "4vw",
-        "6vw": "6vw",
+        "6vw": "5.5vw",
         "12vw": "12vw",
       },
       margin: {

@@ -36,7 +36,16 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li className="pb-2 ">Reservation</li>
+          <li className="pb-2 ">
+            <Link
+              href="/reservations"
+              className={
+                router.pathname == "/reservations" ? "text-gold" : "text-white"
+              }
+            >
+              Reservations
+            </Link>
+          </li>
           <li className="pb-2 ">Experiences</li>
         </ul>
         {/* <img src="/assets/logo.svg" className="w-20 h-20 " /> */}
@@ -66,7 +75,16 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li className="inline">Reservation</li>
+          <li className="inline">
+            <Link
+              href="/reservations"
+              className={
+                router.pathname == "/reservations" ? "text-gold" : "text-white"
+              }
+            >
+              Reservations
+            </Link>
+          </li>
           <li className="inline">Experiences</li>
         </ul>
         <img src="/assets/logo.svg" className="w-20 h-20 " />

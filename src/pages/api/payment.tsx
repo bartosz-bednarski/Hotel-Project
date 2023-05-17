@@ -14,13 +14,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     console.log(dates);
 
-    res.status(201).json({ message: "Data inserted!" });
+    res.status(201).json({ message: "Unique dates inserted!" });
   }
   if (req.method === "PUT") {
     const data = req.body;
     console.log(data, req.method);
-    const updateone = data.map((item) => item._id);
-    console.log("updateone", ...updateone);
 
     for (let i = 0; i < data.length; i++) {
       const dates = await datesCollection.updateOne(
@@ -31,7 +29,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       console.log(dates);
     }
 
-    res.status(201).json({ message: "Data inserted!" });
+    res.status(201).json({ message: "Duplicates inserted!" });
   }
   client.close();
 }

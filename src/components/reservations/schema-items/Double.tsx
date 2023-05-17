@@ -4,7 +4,7 @@ import reservationsSlice, {
 } from "@/store/reservations-slice";
 import Link from "next/link";
 import { FC, useState } from "react";
-const Double: FC<{ id: string; number: string }> = (props) => {
+const Double: FC<{ id: string; number: string; status: string }> = (props) => {
   const [showInfo, setShowInfo] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -22,7 +22,11 @@ const Double: FC<{ id: string; number: string }> = (props) => {
   return (
     <>
       <span
-        className="xl:w-2vw xl:h-6vw w-4vw h-12vw bg-aquaButton rounded-sm border-grey border-2 hover: cursor-pointer"
+        className={`xl:w-2vw xl:h-6vw w-4vw h-12vw ${
+          props.status === "free"
+            ? "bg-aquaButton"
+            : "bg-red-600 pointer-events-none"
+        } rounded-sm border-grey border-2 hover: cursor-pointer`}
         onClick={descriptionHandler}
       />
       {showInfo && (
@@ -51,7 +55,7 @@ const Double: FC<{ id: string; number: string }> = (props) => {
                   Decline
                 </button>
                 <Link
-                  href="/rooms/payment"
+                  href="/reservations/payment"
                   className="text-white bg-aquaButton font-poppins font-normal py-2 w-max px-5 rounded-lg mx-auto"
                 >
                   Reservation
