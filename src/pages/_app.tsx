@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      {router.pathname !== "/rooms/payment" && <Header />}
+      {router.pathname !== "/reservations/payment" && <Header />}
       <Component {...pageProps} />
     </Provider>
   );

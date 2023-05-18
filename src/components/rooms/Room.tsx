@@ -23,10 +23,10 @@ const Room: React.FC<{
           </span>
         </div>
         <div className="flex desktop:flex-row flex-col gap-16 desktop:items-start items-center z-20 ">
-          <span className=" desktop:pl-40 sm:py-0 py-5 text-center font-roboto text-xl font-normal italic text-gold desktop:w-1/2 sm:w-3/4 w-full sm:px-0 px-5 desktop:mr-28">
+          <span className=" desktop:pl-40 sm:py-0 py-5 text-center font-roboto text-xl font-normal italic text-gold desktop:w-3/5 sm:w-3/4 w-full sm:px-0 px-5 desktop:mr-20">
             {props.sentence}
           </span>
-          <span className="text-center sm:w-max w-full desktop:mr-12 desktop:ml-52 text-4xl  text-white border-y-2 border-gold py-4  sm:bg-transparent bg-aquaCard">
+          <span className="text-center sm:w-max w-full desktop:mr-12 desktop:ml-20 text-4xl  text-white border-y-2 border-gold py-4  sm:bg-transparent bg-aquaCard">
             {props.price}
           </span>
         </div>

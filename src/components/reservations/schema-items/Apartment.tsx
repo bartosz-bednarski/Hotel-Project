@@ -8,20 +8,8 @@ import { FC, useState } from "react";
 const Apartment: FC<{ id: string; number: string; status: string }> = (
   props
 ) => {
-  const [showInfo, setShowInfo] = useState(false);
   const dispatch = useAppDispatch();
 
-  const descriptionHandler = () => {
-    setShowInfo(!showInfo);
-    dispatch(
-      reservationActions.setRooms({
-        id: props.id,
-        number: props.number,
-        type: "Apartment",
-        price: 120,
-      })
-    );
-  };
   return (
     <>
       <div
@@ -30,44 +18,20 @@ const Apartment: FC<{ id: string; number: string; status: string }> = (
             ? "bg-aquaButton"
             : "bg-red-600 pointer-events-none"
         }  rounded-sm border-grey border-2  hover: cursor-pointer`}
-        onClick={descriptionHandler}
+        onClick={() =>
+          dispatch(
+            reservationActions.setRooms({
+              id: props.id,
+              number: props.number,
+              type: "Apartment",
+              price: 120,
+              description:
+                "The apartment in Sapphire Palace is an ideal option for guests who are looking for spacious and luxurious accommodation. The apartment is fully equipped with all necessary amenities, including air conditioning, a flat-screen TV with satellite channels, and a desk with a chair. The apartment also has a large bathroom with a shower, a hairdryer, and a complimentary set of toiletries. Additionally, the apartment has a large balcony with beautiful views of the Mediterranean Sea, which is an ideal place to relax and admire the surroundings.",
+              img: "/assets/bedroom-g12e25ce3a_1920.jpg",
+            })
+          )
+        }
       />
-      {showInfo && (
-        <div className="absolute top-0 h-full left-0  sm:w-full  bg-white rounded-xl w-full block  bg-apartment bg-cover ">
-          <div className="flex flex-col h-full w-full bg-imageOpacity gap-5 py-5 px-8 justify-center items-center rounded-xl">
-            <div className="w-9/12 h-3/5 rounded-3xl bg-imageOpacity mx-auto "></div>
-
-            <div className="flex flex-col w-9/12 gap-2 items-end ">
-              <div className="flex flex-row text-xl justify-between w-1/2">
-                <span className="text-textGrey">Room type</span>
-                <span className="text-white">Apartment</span>
-              </div>
-              <div className="flex flex-row text-xl justify-between w-1/2">
-                <span className="text-textGrey">Room number</span>
-                <span className="text-white">{props.number}</span>
-              </div>
-              <div className="flex flex-row text-xl justify-between w-1/2">
-                <span className="text-textGrey">Price</span>
-                <span className="text-white">120$</span>
-              </div>
-              <div className="flex flex-row w-1/2">
-                <button
-                  className=" w-max px-5 py-2 rounded-lg font-poppins font-normal text-white bg-aquaButton mx-auto"
-                  onClick={descriptionHandler}
-                >
-                  Decline
-                </button>
-                <Link
-                  href="/reservations/payment"
-                  className="text-white bg-aquaButton font-poppins font-normal py-2 w-max px-5 rounded-lg mx-auto"
-                >
-                  Reservation
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

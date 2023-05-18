@@ -8,6 +8,8 @@ const reservationsInitialState: reservationsInitialState = {
     number: "",
     type: "",
     price: 0,
+    description: "",
+    img: "",
   },
   actualReservationsForDateRange: [
     {
@@ -131,12 +133,15 @@ const reservations = createSlice({
         startDate.setDate(startDate.getDate() + 1);
         state.dateRange.push(new Date(startDate)).toString();
       }
+      state.room = reservationsInitialState.room;
     },
     setRooms(state, action) {
       state.room.id = action.payload.id;
       state.room.number = action.payload.number;
       state.room.type = action.payload.type;
       state.room.price = action.payload.price;
+      state.room.description = action.payload.description;
+      state.room.img = action.payload.img;
     },
     setActualReservationsForDateRange(state, action) {
       state.actualReservationsForDateRange = action.payload.body;

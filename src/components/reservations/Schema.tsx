@@ -47,7 +47,7 @@ const Schema = () => {
 
   console.log(ROOMS.find((item) => item.id === "single-06"));
   return (
-    <div className="sm:px-10 flex bg-imageOpacity relative px-5 py-11 h-auto rounded-3xl w-min justify-center">
+    <div className="sm:px-10 flex bg-schemaBackgound relative px-5 py-11 h-auto rounded-3xl w-min justify-center">
       <div className="flex flex-col w-auto">
         <div className="flex flex-row justify-between w-full">
           <King id="king-01" number="11" status={roomsForSchema[19].status} />

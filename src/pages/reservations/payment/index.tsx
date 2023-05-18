@@ -1,4 +1,4 @@
-import Payment from "@/components/rooms/payment/Payment";
+import Payment from "@/components/reservations/payment/Payment";
 import { useRouter } from "next/router";
 import { uniqueDates, duplicates } from "@/types/payment";
 const PaymentPage = () => {

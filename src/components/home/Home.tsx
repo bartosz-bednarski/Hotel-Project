@@ -47,6 +47,7 @@ const Home = () => {
     const interval = setInterval(setValues, 10000);
     return () => clearInterval(interval);
   }, [currentHero]);
+
   return (
     <div className="box-border flex flex-col w-auto bg-black ">
       {/* <img
@@ -68,6 +69,7 @@ const Home = () => {
             <button className="sm:text-2xl px-12 py-2 my-8 flex justify-center items-center bg-aquaButton text-lg rounded-3xl absolute bottom-28">
               Book Now
             </button>
+
             <span className="flex flex-row gap-20 absolute bottom-20 ">
               <button onClick={backButtonHandler}>
                 <img src="/assets/arrow-left.svg" className="sm:w-auto w-10" />
@@ -101,7 +103,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="md:px-36 sm:px-16 box-border bg-white h-auto flex flex-col items-center gap-16 py-16 px-0">
+      <div
+        className="md:px-36 sm:px-16 box-border bg-white h-auto flex flex-col items-center gap-16 py-16 px-0"
+        id="about-us"
+      >
         <span className="font-playFair text-gold text-6xl">About us</span>
         <div className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard  flex flex-col ">
           <img

@@ -1,6 +1,13 @@
 export type reservationsInitialState = {
   dateRange: Date[];
-  room: { id: string; number: string; type: string; price: number };
+  room: {
+    id: string;
+    number: string;
+    type: string;
+    price: number;
+    description: string;
+    img: string;
+  };
 
   actualReservationsForDateRange: [
     {
