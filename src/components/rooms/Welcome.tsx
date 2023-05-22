@@ -12,7 +12,6 @@ const Welcome = () => {
             Relax in Italian style and enjoy the beautiful views of the
             Mediterranean Sea from our luxurious hotel rooms just a few steps
             from the sandy beach.
-            <button onClick={() => console.log(user)}>concoleLog</button>
           </span>
         </div>
       </div>
