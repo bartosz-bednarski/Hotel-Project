@@ -1,8 +1,8 @@
 const Invitation = () => {
   return (
-    <div className="box-border flex bg-hero-rooms-2 h-screen ">
-      <div className="box-border bg-black bg-opacity-20 h-auto pb-9  flex flex-col ">
-        <div className=" xl:flex-col xl:h-screen xl:py-0 xl:px-32 md:px-12 box-border w-full flex flex-col h-auto py-9 px-0  justify-center items-center sm:gap-5 xl:gap-12 gap-20  text-white">
+    <div className="box-border flex bg-aquaButton h-fit my-16 ">
+      <div className="box-border bg-black bg-opacity-20 h-auto pb-9  flex flex-col py-16 ">
+        <div className=" xl:flex-col xl:h-auto xl:py-0 xl:px-32 md:px-12 box-border w-full flex flex-col h-auto py-9 px-0  justify-center items-center sm:gap-5 xl:gap-12 gap-20  text-white">
           <div className="flex flex-col items-center">
             <span className="2xl:text-7xl justify-center  sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
               <span>Sapphire</span>

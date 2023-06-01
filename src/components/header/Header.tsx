@@ -46,7 +46,16 @@ const Header = () => {
               Reservations
             </Link>
           </li>
-          <li className="pb-2 ">Experiences</li>
+          <li className="pb-2 ">
+            <Link
+              href="/reservations"
+              className={
+                router.pathname == "/restaurant" ? "text-gold" : "text-white"
+              }
+            >
+              Restaurant
+            </Link>
+          </li>
         </ul>
         {/* <img src="/assets/logo.svg" className="w-20 h-20 " /> */}
         <ul className={`${listShown ? "pr-1 block" : "hidden"}`}>
@@ -85,7 +94,16 @@ const Header = () => {
               Reservations
             </Link>
           </li>
-          <li className="inline">Experiences</li>
+          <li className="inline">
+            <Link
+              href="/restaurant"
+              className={
+                router.pathname == "/restaurant" ? "text-gold" : "text-white"
+              }
+            >
+              Restaurant
+            </Link>
+          </li>
         </ul>
         <img src="/assets/logo.svg" className="w-20 h-20 " />
         <ul className=" desktop:gap-28 xl:gap-20 gap-12 flex flex-row list-none w-4/12 justify-start">

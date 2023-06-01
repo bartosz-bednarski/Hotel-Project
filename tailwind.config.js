@@ -36,6 +36,7 @@ module.exports = {
         schemaBackgound: "rgba(255, 255, 255, 0.72)",
         inputAqua: "#A5CAE4",
         textGrey: "#EAE8E8",
+        whiteDirty: "#F9F8F6",
       },
       backgroundColor: {
         imageOpacity: "rgba(0, 0, 0, 0.19)",
@@ -51,6 +52,7 @@ module.exports = {
         "king-room": "url('/assets/hotel-room-g39ed91d20_1920.jpg')",
         "double-room": "url('/assets/pexels-max-rahubovskiy-7546724.jpg')",
         reception: "url('/assets/lobby-g165055a51_1920.jpg')",
+        restaurant: "url('/assets/louis-hansel-LIJujhJviMI-unsplash.jpg')",
 
         apartment: "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

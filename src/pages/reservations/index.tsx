@@ -12,7 +12,6 @@ const ReservationsPage = () => {
       },
     });
     const data = await response.json();
-    console.log(data);
     return data;
   };
   return <Reservations onReservations={onReservations} />;

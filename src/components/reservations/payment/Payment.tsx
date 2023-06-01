@@ -89,7 +89,7 @@ const Payment: FC<{
               </label>
               <input
                 className="w-full bg-gray-200 text-gray-700   rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
-                placeholder="Your name"
+                placeholder="John"
                 {...register("firstName", {
                   required: true,
                 })}
@@ -105,6 +105,7 @@ const Payment: FC<{
               </label>
               <input
                 className=" w-full bg-gray-200 text-gray-700 rounded py-3 px-4  leading-tight  focus:bg-white shadow-sm "
+                placeholder="Doe"
                 {...register("secondName", { required: true })}
                 aria-invalid={errors.secondName ? "true" : "false"}
               />
@@ -118,6 +119,7 @@ const Payment: FC<{
               </label>
               <input
                 className=" w-full bg-gray-200 text-gray-700  rounded py-3 px-4  leading-tight  focus:bg-white  shadow-sm"
+                placeholder="john.doe@gmail.com"
                 {...register("email", {
                   required: true,
                   pattern:
@@ -139,6 +141,7 @@ const Payment: FC<{
               <input
                 type="number"
                 className=" w-full bg-gray-200 text-gray-700 rounded py-3 px-4  leading-tight  focus:bg-white  shadow-sm"
+                placeholder="777 666 333"
                 {...register("phoneNumber", {
                   required: true,
                   minLength: 9,

@@ -39,7 +39,7 @@ const ROOMS_OFERT = [
 ];
 const Rooms: FC = () => {
   return (
-    <div className="box-border h-auto w-auto flex flex-col">
+    <div className="box-border h-auto w-auto flex flex-col pb-10">
       <Welcome />
       <Invitation />
       {/* <Reservations onReservations={props.onReservations} /> */}
