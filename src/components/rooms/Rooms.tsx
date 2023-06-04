@@ -3,6 +3,7 @@ import Reservations from "../reservations/Reservations";
 import Room from "./Room";
 import Welcome from "./Welcome";
 import Invitation from "./Invitation";
+import Footer from "../footer/Footer";
 const ROOMS_OFERT = [
   {
     img: "/assets/bedroom-g57f6bfa9e_1920.jpg",
@@ -39,7 +40,7 @@ const ROOMS_OFERT = [
 ];
 const Rooms: FC = () => {
   return (
-    <div className="box-border h-auto w-auto flex flex-col pb-10">
+    <div className="box-border h-auto w-auto flex flex-col ">
       <Welcome />
       <Invitation />
       {/* <Reservations onReservations={props.onReservations} /> */}
@@ -54,6 +55,7 @@ const Rooms: FC = () => {
           />
         );
       })}
+      <Footer />
     </div>
   );
 };

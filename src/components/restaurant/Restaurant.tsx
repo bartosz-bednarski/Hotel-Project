@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import Footer from "../footer/Footer";
 
 const Restaurant = () => {
   const [image, setImage] = useState(
@@ -8,11 +9,8 @@ const Restaurant = () => {
     <div className="box-border  flex h-auto flex-col">
       <div className="box-border  h-screen bg-restaurant bg-cover ">
         <div className="box-border bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
-          <span className="xl:text-7xl  mt-0 text-5xl font-poppins font-semibold">
+          <span className="xl:text-7xl  mt-0 text-5xl font-playFair font-semibold">
             Sapphire Palace’s Restaurant
-          </span>
-          <span className="xl:text-2xl  mt-0 text-2xl font-poppins font-medium">
-            A Taste of Culinary Excellence
           </span>
         </div>
       </div>
@@ -209,8 +207,8 @@ const Restaurant = () => {
             </span>
           </div>
         </div>
-        content
       </div>
+      <Footer />
     </div>
   );
 };

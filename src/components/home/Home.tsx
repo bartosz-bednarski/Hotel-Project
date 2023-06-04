@@ -1,4 +1,6 @@
+import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Footer from "../footer/Footer";
 
 const HOME_HERO = [
   {
@@ -7,22 +9,23 @@ const HOME_HERO = [
     background: "bg-hero-main",
   },
   {
-    header: "Sapphire Palace’s cuisine",
+    header: "Sapphire Palace’s Restaurant",
     text: "Sapphire Palace's cuisine is a true paradise for the taste buds. Our team of chefs serves exquisite dishes made from the best ingredients, combining traditional flavors with modern culinary techniques.",
     background: "bg-hero-cuisine",
   },
   {
-    header: "The Sapphire Palace",
+    header: "Sapphire Palace’s Rooms",
     text: "The rooms at Sapphire Palace are the epitome of luxury and elegance. Each one has been designed with the aim of providing maximum comfort and relaxation for our guests. They are equipped with the highest quality furniture and appliances and offer stunning views of the surrounding area.",
     background: "bg-hero-rooms",
   },
   {
-    header: "The Sapphire Palace",
+    header: "Sapphire Palace’s Location",
     text: "Sapphire Palace is located in a beautiful area by the Mediterranean Sea, in a place full of Italian climate. Our beach, just a few steps from the hotel, offers excellent conditions for relaxation and water sports. Guests can also enjoy stunning views of the surroundings, picturesque coves, and turquoise waters of the Mediterranean Sea.",
     background: "bg-hero-beach",
   },
 ];
 const Home = () => {
+  const router = useRouter();
   const [currentHero, setCurrentHero] = useState(0);
   const backButtonHandler = () => {
     currentHero === 0
@@ -60,13 +63,16 @@ const Home = () => {
       >
         <div className="bg-black bg-opacity-20 w-screen h-screen">
           <div className="xl:mt-20vh sm:mt-32 mt-40 text-white flex flex-col w-auto items-center text-center font-poppins">
-            <span className="xl:text-8xl sm:mt-32 mt-0 text-5xl font-playFair">
+            <span className="xl:text-8xl sm:mt-32 text-5xl mt-0  font-playFair">
               {HOME_HERO[currentHero].header}
             </span>
-            <span className="xl:text-2xl xl:w-818px sm:text-lg sm:mt-16 mt-5 w-auto mx-10 leading-9  text-sm font-medium text-center">
+            <span className="xl:text-2xl sm:text-lg text-sm font-medium xl:w-818px  sm:mt-16 mt-5 w-auto mx-10 leading-9   text-center">
               {HOME_HERO[currentHero].text}
             </span>
-            <button className="sm:text-2xl px-12 py-2 my-8 flex justify-center items-center bg-aquaButton text-lg rounded-3xl absolute bottom-28">
+            <button
+              className="sm:text-2xl px-12 py-2 my-8 flex justify-center items-center bg-aquaButton text-lg rounded-3xl absolute bottom-28"
+              onClick={() => router.push("/reservations")}
+            >
               Book Now
             </button>
 
@@ -150,12 +156,8 @@ const Home = () => {
           for you. We invite you to our hotel, and we guarantee that your stay
           will be an unforgettable experience.
         </span>
-        <span className="2xl:text-7xl sm:px-0 sm:text-5xl sm:mt-20 px-4 text-3xl mt-4 flex flex-row gap-2 font-radley  text-gold items-center">
-          <span>Sapphire</span>
-          <img src="/assets/logo.svg" className="2xl:w-36 w-12" />
-          <span>Palace</span>
-        </span>
       </div>
+      <Footer />
     </div>
   );
 };
