@@ -6,7 +6,7 @@ const Room: React.FC<{
   price: string;
 }> = (props) => {
   return (
-    <div className="desktop:h-screen box-border flex flex-col h-auto  sm:bg-white bg-aquaCard py-16 sm:px-16 px-0 items-center gap-14">
+    <div className="desktop:h-screen box-border flex flex-col h-auto  sm:bg-white  py-16 sm:px-16 px-0 items-center gap-14">
       <span className="font-radley sm:text-6xl text-5xl text-gold  w-full text-center py-3">
         {props.title}
       </span>
@@ -18,7 +18,7 @@ const Room: React.FC<{
             src={props.img}
             className=" desktop:h-510px lg:w-4/5 w-full sm:rounded-3xl rounded-none"
           />
-          <span className="text-center sm:pt-20 py-5 desktop:px-12  font-poppins lg:text-xl text-base text-white font-normal leading-9 desktop:w-1/2 lg:w-3/4 w-full lg:px-0 px-7  ">
+          <span className="text-center sm:pt-20 py-5 desktop:px-12  font-poppins lg:text-xl text-base sm:text-white text-grey font-normal leading-9 desktop:w-1/2 lg:w-3/4 w-full lg:px-0 px-7  ">
             {props.text}
           </span>
         </div>

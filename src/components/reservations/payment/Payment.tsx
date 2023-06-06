@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { uniqueDates, duplicates, IFormInput } from "@/types/payment";
 
 const Payment: FC<{
-  onPayment: (uniqueDates: uniqueDates, duplicates: duplicates) => any;
+  onPayment: (uniqueDates: any, duplicates: any) => any;
 }> = (props) => {
   const dateRange = useAppSelector(
     (item) => item.reservationsReducer.dateRange
@@ -20,7 +20,7 @@ const Payment: FC<{
     handleSubmit,
   } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const uniqueDates: uniqueDates[] = [];
+    const uniqueDates = [];
     for (let i = 0; i < dateRange.length; i++) {
       uniqueDates.push({
         _id: new Date(dateRange[i]).toISOString(),
@@ -70,9 +70,9 @@ const Payment: FC<{
   const priceTotal =
     (new Date(checkOut).getDate() - new Date(checkIn).getDate()) * room.price;
   return (
-    <div className="flex flex-col h-screen box-border py-10 pl-32 justify-center bg-reception bg-cover">
-      <div className="flex flex-row w-full   h-auto gap-24">
-        <div className="flex flex-col w-2/5  h-auto  items-center gap-10 justify-center">
+    <div className="flex flex-col xl:h-screen h-auto  box-border py-10  justify-center bg-reception bg-cover">
+      <div className="flex xl:flex-row flex-col  w-full h-auto gap-24">
+        <div className="flex flex-col xl:w-2/5 w-full  h-auto  items-center gap-10 justify-center">
           <span className="2xl:text-7xl justify-end sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
             <span>Sapphire</span>
             <img src="/assets/logo.svg" className="2xl:w-20 w-12" />
@@ -163,87 +163,90 @@ const Payment: FC<{
             </button>
           </form>
         </div>
-        <div className="w-3/5 flex flex-col h-full gap-8 items-center justify-end">
-          <div className="flex flex-col bg-aquaCard h-auto w-9/12 p-7 rounded-xl gap-12 shadow-lg shadow-gray-600">
+        <div className="xl:w-3/5 w-full flex flex-col h-full gap-8 items-center justify-end">
+          <div className="md:flex hidden flex-col bg-aquaCard h-auto w-9/12 p-7 rounded-xl gap-12 shadow-lg shadow-gray-600">
             <span className="text-4xl text-gold font-poppins font-medium">
               Hotel Card
             </span>
-            <div className="flex flex-row justify-between items-center">
-              <img src="/assets/logo.svg" className="2xl:w-20 w-12" />
-              <div className="flex flex-col gap-4 text-right">
-                <span className="text-2xl font-poppins font-normal text-white">
-                  Room type: {room.type}
+            <div className="flex md:flex-row flex-col justify-between md:items-center">
+              <img
+                src="/assets/logo.svg"
+                className="2xl:w-20 w-12 md:block hidden"
+              />
+              <div className="flex flex-col gap-4 text-right ">
+                <span className="2xl:text-2xl text-lg font-poppins font-normal text-white">
+                  Type: {room.type}
                 </span>
-                <span className="text-2xl font-poppins font-normal text-white">
-                  Room number: {room.number}
+                <span className="2xl:text-2xl text-lg font-poppins font-normal text-white">
+                  Number: {room.number}
                 </span>
               </div>
             </div>
-            <div className="flex flex-row justify-between items-center">
-              <span className="text-3xl text-white font-poppins font-normal">
+            <div className="flex md:flex-row flex-col justify-between md:items-center items-end md:gap-0 gap-5">
+              <span className="2xl:text-2xl text-lg text-white font-poppins font-normal">
                 John Doe
               </span>
-              <span className="2xl:text-4xl justify-center sm:px-0 sm:text-5xl px-4 text-3xl  flex flex-row gap-2 font-radley  text-gold items-center">
+              <span className="2xl:text-4xl text-2xl justify-center sm:px-0  px-4   flex flex-row gap-2 font-radley  text-gold items-center">
                 <span>Sapphire</span>
                 <img src="/assets/logo.svg" className="2xl:w-16 w-12" />
                 <span>Palace</span>
               </span>
             </div>
           </div>
-          <div className="flex flex-row bg-aquaButton h-auto w-9/12 p-7 rounded-xl gap-16 shadow-lg shadow-gray-600">
-            <div className="flex flex-col gap-6 w-2/5 text-white">
+          <div className="flex md:flex-row flex-col bg-aquaButton h-auto md:w-9/12 w-11/12 p-7 rounded-xl gap-16 shadow-lg shadow-gray-600">
+            <div className="flex flex-col  gap-6 md:w-2/5 w-full text-white">
               <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
-                <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
+                <span className=" 2xl:text-2xl text-lg py-4 border-gold border-b-2 text-center">
                   {new Date(checkIn).getDate() - 1}
                   {new String(checkIn).slice(3, 7)}
                 </span>
-                <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
+                <span className="2xl:text-2xl text-lg text-center py-2">
                   Check-in
                 </span>
               </div>
               <div className="bg-aquaButton flex flex-col  w-full px-6 rounded-3xl justify-center">
-                <span className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl py-4 border-gold border-b-2 text-center">
+                <span className=" 2xl:text-2xl text-lg py-4 border-gold border-b-2 text-center">
                   {new Date(checkOut).getDate() - 1}
                   {new String(checkOut).slice(3, 7)}
                 </span>
-                <span className="sm:text-2xl desktop:text-2xl xl:text-lg text-base text-center py-2">
+                <span className="2xl:text-2xl text-lg text-center py-2">
                   Check-out
                 </span>
               </div>
             </div>
-            <div className="flex flex-col text-gold font-poppins w-3/5 gap-4">
+            <div className="flex flex-col text-gold font-poppins md:w-3/5 w-full gap-4">
               <span className="text-3xl mb-5 font-semibold text-center">
                 Summary
               </span>
               <div className="w-full flex flex-row justify-between">
-                <span className="text-2xl font-normal text-textGrey">
-                  Room Type
+                <span className="2xl:text-2xl text-lg font-normal text-textGrey">
+                  Type
                 </span>
-                <span className="text-2xl font-normal text-white">
+                <span className="2xl:text-2xl text-lg font-normal text-white">
                   {room.type}
                 </span>
               </div>
               <div className="w-full flex flex-row justify-between">
-                <span className="text-2xl font-normal text-textGrey">
-                  Room Number
+                <span className="2xl:text-2xl text-lg font-normal text-textGrey">
+                  Number
                 </span>
-                <span className="text-2xl font-normal text-white">
+                <span className="2xl:text-2xl text-lg font-normal text-white">
                   {room.number}
                 </span>
               </div>
               <div className="w-full flex flex-row justify-between">
-                <span className="text-2xl font-normal text-textGrey">
+                <span className="2xl:text-2xl text-lg font-normal text-textGrey">
                   Price per night
                 </span>
-                <span className="text-2xl font-normal text-white">
+                <span className="2xl:text-2xl text-lg font-normal text-white">
                   {room.price}$
                 </span>
               </div>
               <div className="w-full flex flex-row justify-between border-gold border-t-2 py-3">
-                <span className="text-2xl font-normal text-textGrey">
+                <span className="2xl:text-2xl text-lg font-normal text-textGrey">
                   Total
                 </span>
-                <span className="text-2xl font-normal text-white">
+                <span className="2xl:text-2xl text-lg font-normal text-white">
                   {priceTotal}$
                 </span>
               </div>

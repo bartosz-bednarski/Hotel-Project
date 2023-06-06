@@ -10,17 +10,17 @@ const HOME_HERO = [
   },
   {
     header: "Sapphire Palace’s Restaurant",
-    text: "Sapphire Palace's cuisine is a true paradise for the taste buds. Our team of chefs serves exquisite dishes made from the best ingredients, combining traditional flavors with modern culinary techniques.",
+    text: "Our team of chefs serves exquisite dishes made from the best ingredients, combining traditional flavors with modern culinary techniques.",
     background: "bg-hero-cuisine",
   },
   {
     header: "Sapphire Palace’s Rooms",
-    text: "The rooms at Sapphire Palace are the epitome of luxury and elegance. Each one has been designed with the aim of providing maximum comfort and relaxation for our guests. They are equipped with the highest quality furniture and appliances and offer stunning views of the surrounding area.",
+    text: "The rooms at Sapphire Palace are the epitome of luxury and elegance. Each one has been designed with the aim of providing maximum comfort and relaxation for our guests. ",
     background: "bg-hero-rooms",
   },
   {
     header: "Sapphire Palace’s Location",
-    text: "Sapphire Palace is located in a beautiful area by the Mediterranean Sea, in a place full of Italian climate. Our beach, just a few steps from the hotel, offers excellent conditions for relaxation and water sports. Guests can also enjoy stunning views of the surroundings, picturesque coves, and turquoise waters of the Mediterranean Sea.",
+    text: "Sapphire Palace is located in a beautiful area by the Mediterranean Sea, in a place full of Italian climate. Our beach, offers excellent conditions for relaxation and water sports. ",
     background: "bg-hero-beach",
   },
 ];
@@ -62,11 +62,11 @@ const Home = () => {
         key={currentHero}
       >
         <div className="bg-black bg-opacity-20 w-screen h-screen">
-          <div className="xl:mt-20vh sm:mt-32 mt-40 text-white flex flex-col w-auto items-center text-center font-poppins">
-            <span className="xl:text-8xl sm:mt-32 text-5xl mt-0  font-playFair">
+          <div className="xl:mt-20vh sm:mt-80 mt-0 text-white flex flex-col w-auto items-center text-center font-poppins">
+            <span className="xl:text-8xl  text-5xl mt-20  font-playFair">
               {HOME_HERO[currentHero].header}
             </span>
-            <span className="xl:text-2xl sm:text-lg text-sm font-medium xl:w-818px  sm:mt-16 mt-5 w-auto mx-10 leading-9   text-center">
+            <span className="xl:text-2xl sm:text-lg text-sm font-medium xl:w-818px  sm:mt-16 mt-10 w-auto mx-10 leading-9   text-center">
               {HOME_HERO[currentHero].text}
             </span>
             <button
@@ -121,9 +121,9 @@ const Home = () => {
           />
           <p className="desktop:text-xl flex items-center justify-center text-base text-center desktop:leading-9 leading-7 w-auto p-8">
             At Sapphire Palace, we believe that true luxury is more than just
-            beautiful interiors and high-quality services. That's why we strive
-            to provide our guests with a unique atmosphere that will make them
-            feel at home while being able to relax and unwind in style.
+            beautiful interiors and high-quality services. That&apos;s why we
+            strive to provide our guests with a unique atmosphere that will make
+            them feel at home while being able to relax and unwind in style.
             <br /> Our history dates back to the early 20th century when Emilio
             Rizzo, an Italian immigrant and lover of beauty, built Sapphire
             Palace with the aim of creating an exclusive hotel on the
@@ -151,10 +151,10 @@ const Home = () => {
           />
         </div>
         <span className="2xl:w-2/5 2xl:mt-24 sm:px-0 sm:text-2xl px-4 text-grey font-roboto text-lg leading-10 mt-0  w-auto text-center italic">
-          If you're looking for a place where you will feel special and relax in
-          a beautiful and romantic setting, Sapphire Palace is the perfect place
-          for you. We invite you to our hotel, and we guarantee that your stay
-          will be an unforgettable experience.
+          If you&apos;re looking for a place where you will feel special and
+          relax in a beautiful and romantic setting, Sapphire Palace is the
+          perfect place for you. We invite you to our hotel, and we guarantee
+          that your stay will be an unforgettable experience.
         </span>
       </div>
       <Footer />

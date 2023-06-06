@@ -152,7 +152,9 @@ const reservations = createSlice({
           allRooms.push(action.payload.body[i].rooms[j].id);
         }
       }
-      const uniq = [...new Set(allRooms)];
+      const uniq = allRooms.filter(
+        (value, index, array) => array.indexOf(value) === index
+      );
       state.occupiedRooms = uniq;
       for (let i = 0; i < state.roomsForSchema.length; i++) {
         for (let j = 0; j < uniq.length; j++) {

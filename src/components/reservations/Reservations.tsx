@@ -101,7 +101,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                         onChange={onChange}
                         value={value}
                         locale="en"
-                        selectRange="true"
+                        selectRange={true}
                         minDate={new Date()}
                       />
                     </div>

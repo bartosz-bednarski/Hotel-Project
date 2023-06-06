@@ -48,7 +48,7 @@ const Header = () => {
           </li>
           <li className="pb-2 ">
             <Link
-              href="/reservations"
+              href="/restaurant"
               className={
                 router.pathname == "/restaurant" ? "text-gold" : "text-white"
               }

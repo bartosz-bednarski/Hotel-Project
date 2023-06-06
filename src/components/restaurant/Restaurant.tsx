@@ -9,20 +9,20 @@ const Restaurant = () => {
     <div className="box-border  flex h-auto flex-col">
       <div className="box-border  h-screen bg-restaurant bg-cover ">
         <div className="box-border bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
-          <span className="xl:text-7xl  mt-0 text-5xl font-playFair font-semibold">
+          <span className="lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
             Sapphire Palace’s Restaurant
           </span>
         </div>
       </div>
-      <div className="flex flex-col bg-whiteDirty py-20 px-20 gap-20">
-        <span className="font-poppins text-3xl font-semibold w-2/3 text-center mx-auto">
-          Indulge in Exquisite Dining at Sapphire Palace's Restaurant.
+      <div className="flex flex-col bg-whiteDirty py-20 sm:px-20 px-5 gap-20">
+        <span className="font-poppins text-3xl font-semibold md:w-2/3 w-full text-center mx-auto">
+          Indulge in Exquisite Dining at Sapphire Palace&apos;s Restaurant.
         </span>
-        <div className="flex flex-row ">
-          <div className="box-border flex flex-col w-1/2 h-90vh mx-auto gap-8">
+        <div className="flex 2xl:flex-row flex-col w-full 2xl:gap-0 gap-20">
+          <div className="box-border flex flex-col 2xl:w-1/2 w-full 2xl:h-90vh h-auto mx-auto gap-8">
             <img
               src={image}
-              className="h-4/6 w-auto bg-cover shadow-grey shadow-md"
+              className="h-4/6 w-full bg-cover shadow-grey shadow-md"
             />
             <div className="flex flex-row gap-5 mx-auto">
               <button
@@ -77,62 +77,64 @@ const Restaurant = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col w-1/2 pl-16 gap-5 text-grey">
+          <div className="flex flex-col 2xl:w-1/2 w-full 2xl:items-start items-end md:pl-16 pl-0 gap-5 text-grey">
             <span className="font-poppins text-xl font-semibold">
               List of example dishes served by our hotel kitchen
             </span>
-            <ul className="list-none flex flex-col gap-4  font-poppins text-md text-black">
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+            <ul className="box-border list-none w-full flex flex-col gap-4 2xl:items-start items-end font-poppins text-md text-black md:pl-0 pl-16">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md ">
                 Grilled shrimp with marinated garlic and lemon.
               </li>
 
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Tagliatelle with Bolognese sauce and fresh Parmesan cheese.{" "}
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Grilled chicken salad with avocado and cherry tomatoes.{" "}
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md  ">
                 Juicy beef steak with roasted potatoes and sautéed vegetables.{" "}
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Shrimp risotto with asparagus and white wine.{" "}
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Baked salmon with green pea puree and lemon sauce.
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Gnocchi with sun-dried tomatoes, arugula, and mozzarella cheese.
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Traditional Italian pizza with various toppings such as ham,
                 mushrooms, and olives.{" "}
               </li>
-              <li className="bg-lightAquaCard w-max px-5 py-1 rounded-md">
+              <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md">
                 Chocolate mousse dessert with raspberry sauce and whipped cream.{" "}
               </li>
             </ul>
-            <span className="text-md font-poppins">
+            <span className="text-md font-poppins 2xl:text-start sm:text-end text-center">
               Our kitchen offers a wide selection of dishes that combine
               tradition with a modern culinary approach.
             </span>
-            <span className="text-md font-poppins">
+            <span className="text-md font-poppins 2xl:text-start sm:text-end text-center">
               Each dish is carefully prepared using the finest ingredients to
               provide our guests with a unique culinary experience.
             </span>
           </div>
         </div>
-        <div className="flex flex-row h-screen px-32">
+        <div className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
           <img
             src="/assets/redcharlie-redcharlie1-t-7KEq9M0b0-unsplash.jpg"
-            className="h-4/5 w-2/5 shadow-grey shadow-md xl:ml-12"
+            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
-          <div className="flex flex-col text-grey font-normal font-poppins w-1/2 gap-5 pl-20">
-            <span className=" text-xl ">
+          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <span className=" text-xl lg:static absolute top-0 left-0">
               The head chef of Sapphire Palace hotel
             </span>
-            <span className="text-4xl text-gold">Giorgio Albanii</span>
-            <span className="text-2xl ">
+            <span className="text-4xl text-gold lg:static absolute top-16 left-0">
+              Giorgio Albanii
+            </span>
+            <span className="xl:text-2xl text-lg ">
               Our head chef is a true culinary master, whose passion and talent
               are undeniable.
               <br />
@@ -148,13 +150,15 @@ const Restaurant = () => {
             </span>
           </div>
         </div>
-        <div className="flex flex-row h-screen px-32">
-          <div className="flex flex-col text-grey font-normal font-poppins w-1/2 gap-5 pr-20 text-right">
-            <span className=" text-xl ">
+        <div className="flex lg:flex-row lg:h-screen lg:items-start items-end flex-col-reverse h-auto 2xl:px-32 px-0 relative">
+          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <span className=" text-xl lg:static absolute top-0 right-0 lg:text-start text-end">
               Culinary powerhouse of Sapphire Palace hotel
             </span>
-            <span className="text-4xl text-gold">Chefs team</span>
-            <span className="text-2xl ">
+            <span className="text-4xl text-gold lg:static absolute top-16 right-0 ">
+              Chefs team
+            </span>
+            <span className="xl:text-2xl text-lg ">
               The team of chefs at Sapphire Palace hotel, led by our head chef,
               is a culinary powerhouse dedicated to creating exceptional dining
               experiences.
@@ -174,20 +178,22 @@ const Restaurant = () => {
           </div>
           <img
             src="/assets/elevate-iv6yNy7oBqQ-unsplash.jpg"
-            className="h-4/5 w-2/5 shadow-grey shadow-md"
+            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
         </div>
-        <div className="flex flex-row h-screen px-32">
+        <div className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
           <img
             src="/assets/rumman-amin-X39jZ5OqRmk-unsplash.jpg"
-            className="h-4/5 w-2/5 shadow-grey shadow-md xl:ml-12"
+            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
-          <div className="flex flex-col text-grey font-normal font-poppins w-1/2 gap-5 pl-20">
-            <span className=" text-xl ">
+          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <span className=" text-xl lg:static absolute top-0 left-0">
               Waitstaff of Sapphire Palace hotel{" "}
             </span>
-            <span className="text-4xl text-gold">Waitstaff team</span>
-            <span className="text-2xl ">
+            <span className="text-4xl text-gold lg:static absolute top-16 left-0">
+              Waitstaff team
+            </span>
+            <span className="xl:text-2xl text-lg ">
               The waitstaff at Sapphire Palace hotel is a team of professional
               and attentive individuals dedicated to providing exceptional
               service.
@@ -202,8 +208,8 @@ const Restaurant = () => {
               <br />
               With their knowledge of food and beverage pairings, impeccable
               table service, and attention to detail, our waitstaff plays a
-              crucial role in enhancing our guests' overall satisfaction during
-              their stay.
+              crucial role in enhancing our guests&apos; overall satisfaction
+              during their stay.
             </span>
           </div>
         </div>

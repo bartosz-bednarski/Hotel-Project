@@ -3,10 +3,7 @@ import { useRouter } from "next/router";
 import { uniqueDates, duplicates } from "@/types/payment";
 const PaymentPage = () => {
   const router = useRouter();
-  const onPayment = async (
-    uniqueDates: uniqueDates | any,
-    duplicates: duplicates | any
-  ) => {
+  const onPayment = async (uniqueDates: any, duplicates: duplicates | any) => {
     if (uniqueDates[0] != undefined) {
       const responsePost = await fetch("/api/payment", {
         method: "POST",
@@ -29,7 +26,7 @@ const PaymentPage = () => {
       console.log(dataUpdate);
     }
 
-    router.push("/");
+    router.push("/reservations/payment/redirect");
   };
   return <Payment onPayment={onPayment} />;
 };
