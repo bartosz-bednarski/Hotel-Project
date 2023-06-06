@@ -1,6 +1,7 @@
 import Payment from "@/components/reservations/payment/Payment";
 import { useRouter } from "next/router";
 import { uniqueDates, duplicates } from "@/types/payment";
+import Header from "@/components/header/Header";
 const PaymentPage = () => {
   const router = useRouter();
   const onPayment = async (uniqueDates: any, duplicates: duplicates | any) => {
@@ -28,6 +29,10 @@ const PaymentPage = () => {
 
     router.push("/reservations/payment/redirect");
   };
-  return <Payment onPayment={onPayment} />;
+  return (
+    <>
+      <Payment onPayment={onPayment} />
+    </>
+  );
 };
 export default PaymentPage;

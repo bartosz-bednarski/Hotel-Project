@@ -1,3 +1,4 @@
+import Header from "@/components/header/Header";
 import Reservations from "@/components/reservations/Reservations";
 import { useRouter } from "next/router";
 const ReservationsPage = () => {
@@ -14,6 +15,11 @@ const ReservationsPage = () => {
     const data = await response.json();
     return data;
   };
-  return <Reservations onReservations={onReservations} />;
+  return (
+    <>
+      <Header />
+      <Reservations onReservations={onReservations} />
+    </>
+  );
 };
 export default ReservationsPage;
