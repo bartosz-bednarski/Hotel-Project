@@ -44,7 +44,7 @@ const Header = () => {
                 router.pathname == "/reservations" ? "text-gold" : "text-white"
               }
             >
-              Reservations
+              Reservation
             </Link>
           </li>
           <li className="pb-2 ">

@@ -74,13 +74,20 @@ const Home = () => {
               </button>
 
               <span className="flex flex-row gap-20 absolute bottom-20 ">
-                <button onClick={backButtonHandler}>
+                <button
+                  onClick={backButtonHandler}
+                  aria-label="backward-button"
+                >
                   <img
                     src="/assets/arrow-left.svg"
                     className="sm:w-auto w-10"
                   />
                 </button>
-                <button className="rotate-180" onClick={forwardButtonHandler}>
+                <button
+                  className="rotate-180"
+                  onClick={forwardButtonHandler}
+                  aria-label="forward-button"
+                >
                   <img
                     src="/assets/arrow-left.svg"
                     className="sm:w-auto w-10"
