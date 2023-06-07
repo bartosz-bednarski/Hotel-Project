@@ -53,37 +53,41 @@ const Home = () => {
 
   return (
     <div className="box-border flex flex-col w-auto bg-black ">
-      {/* <img
-        src="/assets/elba-gd3fdbbea6_1920.jpg"
-        className="h-screen w-screen z-10 absolute top-0"
-      /> */}
-      <div
+      <main
         className={`flex w-auto h-screen z-20 ${HOME_HERO[currentHero].background} bg-cover animate-slider relative`}
         key={currentHero}
       >
         <div className="bg-black bg-opacity-20 w-screen h-screen">
-          <div className="xl:mt-20vh sm:mt-80 mt-0 text-white flex flex-col w-auto items-center text-center font-poppins">
-            <span className="xl:text-8xl  text-5xl mt-20  font-playFair">
+          <section className="xl:mt-20vh sm:mt-80 mt-0 text-white flex flex-col w-auto items-center text-center font-poppins">
+            <header className="xl:text-8xl  text-5xl mt-20  font-playFair">
               {HOME_HERO[currentHero].header}
-            </span>
+            </header>
             <span className="xl:text-2xl sm:text-lg text-sm font-medium xl:w-818px  sm:mt-16 mt-10 w-auto mx-10 leading-9   text-center">
               {HOME_HERO[currentHero].text}
             </span>
-            <button
-              className="sm:text-2xl px-12 py-2 my-8 flex justify-center items-center bg-aquaButton text-lg rounded-3xl absolute bottom-28"
-              onClick={() => router.push("/reservations")}
-            >
-              Book Now
-            </button>
+            <nav className="xl:mt-20vh sm:mt-80 mt-0 text-white flex flex-col w-auto items-center text-center font-poppins">
+              <button
+                className="sm:text-2xl px-12 py-2 my-8 flex justify-center items-center bg-aquaButton text-lg rounded-3xl absolute bottom-28"
+                onClick={() => router.push("/reservations")}
+              >
+                Book Now
+              </button>
 
-            <span className="flex flex-row gap-20 absolute bottom-20 ">
-              <button onClick={backButtonHandler}>
-                <img src="/assets/arrow-left.svg" className="sm:w-auto w-10" />
-              </button>
-              <button className="rotate-180" onClick={forwardButtonHandler}>
-                <img src="/assets/arrow-left.svg" className="sm:w-auto w-10" />
-              </button>
-            </span>
+              <span className="flex flex-row gap-20 absolute bottom-20 ">
+                <button onClick={backButtonHandler}>
+                  <img
+                    src="/assets/arrow-left.svg"
+                    className="sm:w-auto w-10"
+                  />
+                </button>
+                <button className="rotate-180" onClick={forwardButtonHandler}>
+                  <img
+                    src="/assets/arrow-left.svg"
+                    className="sm:w-auto w-10"
+                  />
+                </button>
+              </span>
+            </nav>
             <div className="flex flex-row gap-3 mt-6 absolute bottom-6">
               <span
                 className={`block w-5 ${
@@ -106,15 +110,15 @@ const Home = () => {
                 }  h-5 rounded-full`}
               />
             </div>
-          </div>
+          </section>
         </div>
-      </div>
-      <div
+      </main>
+      <article
         className="md:px-36 sm:px-16 box-border bg-white h-auto flex flex-col items-center gap-16 py-16 px-0"
         id="about-us"
       >
-        <span className="font-playFair text-gold text-6xl">About us</span>
-        <div className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard  flex flex-col ">
+        <header className="font-playFair text-gold text-6xl">About us</header>
+        <section className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard  flex flex-col ">
           <img
             src="/assets/lobby-g165055a51_1920.jpg"
             className="2xl:h-96 w-auto h-auto object-fill"
@@ -131,8 +135,8 @@ const Home = () => {
             luxury and good taste, attracting rich and influential people from
             all over the world.
           </p>
-        </div>
-        <div className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard flex flex-col-reverse ">
+        </section>
+        <section className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard flex flex-col-reverse ">
           <p className=" flex items-center justify-center text-base desktop:text-xl  text-center desktop:leading-9 leading-6 w-auto p-8">
             Today, after years of neglect, Sapphire Palace returns as one of the
             most prestigious holiday destinations. By renovating the hotel, we
@@ -149,14 +153,14 @@ const Home = () => {
             src="/assets/receptionists-g90e503aff_1920.jpg"
             className="2xl:h-96 w-auto h-auto object-fill"
           />
-        </div>
+        </section>
         <span className="2xl:w-2/5 2xl:mt-24 sm:px-0 sm:text-2xl px-4 text-grey font-roboto text-lg leading-10 mt-0  w-auto text-center italic">
           If you&apos;re looking for a place where you will feel special and
           relax in a beautiful and romantic setting, Sapphire Palace is the
           perfect place for you. We invite you to our hotel, and we guarantee
           that your stay will be an unforgettable experience.
         </span>
-      </div>
+      </article>
       <Footer />
     </div>
   );

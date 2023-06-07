@@ -40,7 +40,7 @@ const ROOMS_OFERT = [
 ];
 const Rooms: FC = () => {
   return (
-    <div className="box-border h-auto w-full flex flex-col ">
+    <main className="box-border h-auto w-full flex flex-col ">
       <Welcome />
       <Invitation />
       {/* <Reservations onReservations={props.onReservations} /> */}
@@ -57,7 +57,7 @@ const Rooms: FC = () => {
         );
       })}
       <Footer />
-    </div>
+    </main>
   );
 };
 export default Rooms;

@@ -2,12 +2,13 @@ import { useState } from "react";
 import logo from "../../../public/assets/logo.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 const Header = () => {
   const router = useRouter();
   const [listShown, setListShown] = useState(false);
   return (
     <>
-      <div
+      <nav
         className={`lg:hidden box-border pr-6 pt-4 flex flex-col absolute right-0 top-0 z-30 items-end text-end text-white text-2xl ${
           listShown && "bg-aquaButton  w-64 border-gold border-l-2"
         } `}
@@ -73,8 +74,8 @@ const Header = () => {
           </li>
           <li className="pb-2  ">Contact</li>
         </ul>
-      </div>
-      <div className="lg:flex desktop:gap-32 xl:text-xl gap-20 absolute z-30 text-white top-0 left-0 font-poppins py-9 text-base box-border hidden  flex-row justify-center w-97vw bg-transparent  items-center h-10vh  ">
+      </nav>
+      <nav className="lg:flex desktop:gap-32 xl:text-xl gap-20 absolute z-30 text-white top-0 left-0 font-poppins py-9 text-base box-border hidden  flex-row justify-center w-97vw bg-transparent  items-center h-10vh  ">
         <ul className=" desktop:gap-28 xl:gap-20 gap-12 flex flex-row list-none  w-4/12 justify-end ">
           <li className="inline">
             <Link
@@ -105,7 +106,7 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        <img src="/assets/logo.svg" className="w-20 h-20 " />
+        <Image src="/assets/logo.svg" width={80} height={80} alt="Hotel Logo" />
         <ul className=" desktop:gap-28 xl:gap-20 gap-12 flex flex-row list-none w-4/12 justify-start">
           <li>Services</li>
           <li>
@@ -120,7 +121,7 @@ const Header = () => {
           </li>
           <li>Contact</li>
         </ul>
-      </div>
+      </nav>
     </>
   );
 };

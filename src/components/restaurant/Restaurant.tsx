@@ -6,20 +6,20 @@ const Restaurant = () => {
     "/assets/louis-hansel-LIJujhJviMI-unsplash.jpg"
   );
   return (
-    <div className="box-border  flex h-auto flex-col">
-      <div className="box-border  h-screen bg-restaurant bg-cover ">
+    <main className="box-border flex h-auto flex-col">
+      <section className="box-border  h-screen bg-restaurant bg-cover ">
         <div className="box-border bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
-          <span className="lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
+          <header className="lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
             Sapphire Palace’s Restaurant
-          </span>
+          </header>
         </div>
-      </div>
-      <div className="flex flex-col bg-whiteDirty py-20 sm:px-20 px-5 gap-20">
-        <span className="font-poppins text-3xl font-semibold md:w-2/3 w-full text-center mx-auto">
+      </section>
+      <section className="flex flex-col bg-whiteDirty py-20 sm:px-20 px-5 gap-20">
+        <header className="font-poppins text-3xl font-semibold md:w-2/3 w-full text-center mx-auto">
           Indulge in Exquisite Dining at Sapphire Palace&apos;s Restaurant.
-        </span>
-        <div className="flex 2xl:flex-row flex-col w-full 2xl:gap-0 gap-20">
-          <div className="box-border flex flex-col 2xl:w-1/2 w-full 2xl:h-90vh h-auto mx-auto gap-8">
+        </header>
+        <article className="flex 2xl:flex-row flex-col w-full 2xl:gap-0 gap-20">
+          <section className="box-border flex flex-col 2xl:w-1/2 w-full 2xl:h-90vh h-auto mx-auto gap-8">
             <img
               src={image}
               className="h-4/6 w-full bg-cover shadow-grey shadow-md"
@@ -76,11 +76,11 @@ const Restaurant = () => {
                 }  h-5 w-5`}
               />
             </div>
-          </div>
-          <div className="flex flex-col 2xl:w-1/2 w-full 2xl:items-start items-end md:pl-16 pl-0 gap-5 text-grey">
-            <span className="font-poppins text-xl font-semibold">
+          </section>
+          <section className="flex flex-col 2xl:w-1/2 w-full 2xl:items-start items-end md:pl-16 pl-0 gap-5 text-grey">
+            <header className="font-poppins text-xl font-semibold">
               List of example dishes served by our hotel kitchen
-            </span>
+            </header>
             <ul className="box-border list-none w-full flex flex-col gap-4 2xl:items-start items-end font-poppins text-md text-black md:pl-0 pl-16">
               <li className="bg-lightAquaCard w-fit px-5 py-1 rounded-md ">
                 Grilled shrimp with marinated garlic and lemon.
@@ -120,20 +120,20 @@ const Restaurant = () => {
               Each dish is carefully prepared using the finest ingredients to
               provide our guests with a unique culinary experience.
             </span>
-          </div>
-        </div>
-        <div className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
+          </section>
+        </article>
+        <article className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
           <img
             src="/assets/redcharlie-redcharlie1-t-7KEq9M0b0-unsplash.jpg"
             className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
-          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
-            <span className=" text-xl lg:static absolute top-0 left-0">
+          <section className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <header className=" text-xl lg:static absolute top-0 left-0">
               The head chef of Sapphire Palace hotel
-            </span>
-            <span className="text-4xl text-gold lg:static absolute top-16 left-0">
+            </header>
+            <header className="text-4xl text-gold lg:static absolute top-16 left-0">
               Giorgio Albanii
-            </span>
+            </header>
             <span className="xl:text-2xl text-lg ">
               Our head chef is a true culinary master, whose passion and talent
               are undeniable.
@@ -148,16 +148,16 @@ const Restaurant = () => {
               His constant exploration of culinary trends and techniques ensures
               that each meal is unique and unparalleled.
             </span>
-          </div>
-        </div>
-        <div className="flex lg:flex-row lg:h-screen lg:items-start items-end flex-col-reverse h-auto 2xl:px-32 px-0 relative">
-          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
-            <span className=" text-xl lg:static absolute top-0 right-0 lg:text-start text-end">
+          </section>
+        </article>
+        <article className="flex lg:flex-row lg:h-screen lg:items-start items-end flex-col-reverse h-auto 2xl:px-32 px-0 relative">
+          <section className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <header className=" text-xl lg:static absolute top-0 right-0 lg:text-start text-end">
               Culinary powerhouse of Sapphire Palace hotel
-            </span>
-            <span className="text-4xl text-gold lg:static absolute top-16 right-0 ">
+            </header>
+            <header className="text-4xl text-gold lg:static absolute top-16 right-0 ">
               Chefs team
-            </span>
+            </header>
             <span className="xl:text-2xl text-lg ">
               The team of chefs at Sapphire Palace hotel, led by our head chef,
               is a culinary powerhouse dedicated to creating exceptional dining
@@ -175,24 +175,24 @@ const Restaurant = () => {
               consistently delivers delectable and memorable meals that satisfy
               the palates of our discerning guests.
             </span>
-          </div>
+          </section>
           <img
             src="/assets/elevate-iv6yNy7oBqQ-unsplash.jpg"
             className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
-        </div>
-        <div className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
+        </article>
+        <article className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
           <img
             src="/assets/rumman-amin-X39jZ5OqRmk-unsplash.jpg"
             className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
           />
-          <div className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
-            <span className=" text-xl lg:static absolute top-0 left-0">
+          <section className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
+            <header className=" text-xl lg:static absolute top-0 left-0">
               Waitstaff of Sapphire Palace hotel{" "}
-            </span>
-            <span className="text-4xl text-gold lg:static absolute top-16 left-0">
+            </header>
+            <header className="text-4xl text-gold lg:static absolute top-16 left-0">
               Waitstaff team
-            </span>
+            </header>
             <span className="xl:text-2xl text-lg ">
               The waitstaff at Sapphire Palace hotel is a team of professional
               and attentive individuals dedicated to providing exceptional
@@ -211,11 +211,11 @@ const Restaurant = () => {
               crucial role in enhancing our guests&apos; overall satisfaction
               during their stay.
             </span>
-          </div>
-        </div>
-      </div>
+          </section>
+        </article>
+      </section>
       <Footer />
-    </div>
+    </main>
   );
 };
 
