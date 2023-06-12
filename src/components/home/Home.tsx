@@ -1,7 +1,7 @@
 import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Footer from "../footer/Footer";
-
+import Image from "next/image";
 const HOME_HERO = [
   {
     header: "The Sapphire Palace",

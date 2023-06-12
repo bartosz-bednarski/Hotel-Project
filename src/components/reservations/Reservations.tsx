@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { reservationActions } from "@/store/reservations-slice";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 const MONTH = [
   "January",
@@ -69,8 +70,14 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
   console.log(checkIn, checkOut);
   console.log(value);
   return (
-    <div className="box-border flex bg-reception xl:h-screen  h-auto w-full">
-      <div className="box-border bg-black bg-opacity-20 h-auto md:pb-0 pb-8 xl:pt-0 pt-8 flex flex-col w-full">
+    <div className="relative box-border flex  xl:h-screen  h-auto w-full">
+      <Image
+        src="/assets/lobby-g165055a51_1920.jpg"
+        alt="reception background image"
+        fill={true}
+        style={{ objectFit: "fill" }}
+      />
+      <div className="z-10 box-border bg-black bg-opacity-20 h-auto md:pb-0 pb-8 xl:pt-0 pt-8 flex flex-col w-full">
         <main className=" flex-col xl:h-screen xl:py-0 xl:px-32 md:px-12 box-border w-full flex  h-auto mt-20 px-2  justify-center items-center sm:gap-5 xl:gap-12 gap-20  text-white">
           <section className="flex xl:flex-row flex-col w-full xl:justify-between items-center gap-3">
             <div className="flex xl:w-5/12 w-10/12 ">
@@ -126,9 +133,11 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                     className="bg-aquaButton flex justify-center items-center  w-full px-10 rounded-3xl hover:cursor-pointer"
                     onClick={() => setShowCalendar(true)}
                   >
-                    <img
+                    <Image
                       src="/assets/calendar-regular-240.png"
-                      className="h-24"
+                      height={96}
+                      width={96}
+                      alt={`${room.type} image`}
                     />
                   </button>
                 )}

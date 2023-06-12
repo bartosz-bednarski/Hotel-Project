@@ -23,7 +23,7 @@ const Single: FC<{ id: string; number: string; status: string }> = (props) => {
               price: 50,
               description:
                 "The single room at Sapphire Palace is the perfect place for solo travelers. It has been equipped with all necessary amenities to provide maximum comfort and relaxation to our guests. The room features a comfortable bed, air conditioning, and a flat-screen TV with satellite channels. Additionally, the room is equipped with a desk and chair, making it ideal for work or study in comfortable conditions. The bathroom with a shower and complimentary toiletries provides our guests with comfortable conditions for personal hygiene. Beautiful views of the surrounding area can be seen from the room's windows.",
-              img: "/assets/bedroom-g57f6bfa9e_1920.jpg",
+              img: "/assets/rooms/bedroom-g57f6bfa9e_1920.jpg",
             })
           )
         }

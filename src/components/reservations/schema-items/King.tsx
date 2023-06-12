@@ -26,7 +26,7 @@ const King: React.FC<{ id: string; number: string; status: string }> = (
               price: 100,
               description:
                 "A room with a king-size bed and a sea view at Sapphire Palace is an excellent choice for those seeking to combine luxury and stunning views. Equipped with high-quality furnishings and elegantly styled, this room offers not only a comfortable sleep but also unforgettable visual experiences. From the large and cozy king-size bed, you can indulge in spectacular views of the azure waters of the Mediterranean Sea without even leaving the room. By spending time in this room, you'll merge relaxation with an incredible sea view, creating unforgettable memories of your stay at Sapphire Palace.",
-              img: "/assets/pexels-max-rahubovskiy-7546724.jpg",
+              img: "/assets/rooms/pexels-max-rahubovskiy-7546724.jpg",
             })
           )
         }

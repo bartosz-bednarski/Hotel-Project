@@ -24,7 +24,7 @@ const Double: FC<{ id: string; number: string; status: string }> = (props) => {
               price: 80,
               description:
                 "The room for a couple at Sapphire Palace is the perfect place for a romantic getaway for two. The room has been carefully designed to provide our guests with maximum comfort and relaxation. The room features a large and comfortable queen-size bed, air conditioning, a flat-screen TV with access to satellite channels. The bathroom has a shower and a complimentary toiletries set, providing our guests with comfortable conditions for personal hygiene. Towels and a hairdryer are also provided in the room. ",
-              img: "/assets/hotel-room-g39ed91d20_1920.jpg",
+              img: "/assets/rooms/hotel-room-g39ed91d20_1920.jpg",
             })
           )
         }

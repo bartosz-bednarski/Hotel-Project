@@ -1,15 +1,21 @@
 import { FC, useState } from "react";
 import Footer from "../footer/Footer";
-
+import Image from "next/image";
 const Restaurant = () => {
   const [image, setImage] = useState(
-    "/assets/louis-hansel-LIJujhJviMI-unsplash.jpg"
+    "/assets/restaurant/louis-hansel-LIJujhJviMI-unsplash.jpg"
   );
   return (
     <main className="box-border flex h-auto flex-col">
-      <section className="box-border  h-screen bg-restaurant bg-cover ">
-        <div className="box-border bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
-          <header className="lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
+      <section className="relative box-border  h-screen  ">
+        <Image
+          src="/assets/restaurant/louis-hansel-LIJujhJviMI-unsplash.jpg"
+          fill={true}
+          style={{ objectFit: "cover" }}
+          alt="restaurant background image"
+        />
+        <div className="box-border z-10 bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
+          <header className="z-10 lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
             Sapphire Palace’s Restaurant
           </header>
         </div>
@@ -19,58 +25,77 @@ const Restaurant = () => {
           Indulge in Exquisite Dining at Sapphire Palace&apos;s Restaurant.
         </header>
         <article className="flex 2xl:flex-row flex-col w-full 2xl:gap-0 gap-20">
-          <section className="box-border flex flex-col 2xl:w-1/2 w-full 2xl:h-90vh h-auto mx-auto gap-8">
-            <img
+          <section className="relative box-border flex flex-col 2xl:w-1/2 w-full 2xl:h-90vh h-auto mx-auto gap-8">
+            <Image
               src={image}
-              className="h-4/6 w-full bg-cover shadow-grey shadow-md"
+              alt="Slider img"
+              width={800}
+              height={800}
+              className=" bg-cover shadow-grey shadow-md"
+              // h-4/6 w-full
             />
             <div className="flex flex-row gap-5 mx-auto">
               <button
                 onClick={() =>
-                  setImage("/assets/louis-hansel-LIJujhJviMI-unsplash.jpg")
+                  setImage(
+                    "/assets/restaurant/louis-hansel-LIJujhJviMI-unsplash.jpg"
+                  )
                 }
                 className={`block rounded-full ${
-                  image === "/assets/louis-hansel-LIJujhJviMI-unsplash.jpg"
+                  image ===
+                  "/assets/restaurant/louis-hansel-LIJujhJviMI-unsplash.jpg"
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
               />
               <button
                 onClick={() =>
-                  setImage("/assets/eaters-collective-12eHC6FxPyg-unsplash.jpg")
+                  setImage(
+                    "/assets/restaurant/eaters-collective-12eHC6FxPyg-unsplash.jpg"
+                  )
                 }
                 className={`block rounded-full ${
-                  image === "/assets/eaters-collective-12eHC6FxPyg-unsplash.jpg"
+                  image ===
+                  "/assets/restaurant/eaters-collective-12eHC6FxPyg-unsplash.jpg"
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
               />
               <button
                 onClick={() =>
-                  setImage("/assets/georgia-z-JG5lgvc57qE-unsplash.jpg")
+                  setImage(
+                    "/assets/restaurant/georgia-z-JG5lgvc57qE-unsplash.jpg"
+                  )
                 }
                 className={`block rounded-full ${
-                  image === "/assets/georgia-z-JG5lgvc57qE-unsplash.jpg"
+                  image ===
+                  "/assets/restaurant/georgia-z-JG5lgvc57qE-unsplash.jpg"
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
               />
               <button
                 onClick={() =>
-                  setImage("/assets/mgg-vitchakorn-98Xi5vMGKck-unsplash.jpg")
+                  setImage(
+                    "/assets/restaurant/mgg-vitchakorn-98Xi5vMGKck-unsplash.jpg"
+                  )
                 }
                 className={`block rounded-full ${
-                  image === "/assets/mgg-vitchakorn-98Xi5vMGKck-unsplash.jpg"
+                  image ===
+                  "/assets/restaurant/mgg-vitchakorn-98Xi5vMGKck-unsplash.jpg"
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
               />
               <button
                 onClick={() =>
-                  setImage("/assets/nik-owens-40OJLYVWeeM-unsplash.jpg")
+                  setImage(
+                    "/assets/restaurant/nik-owens-40OJLYVWeeM-unsplash.jpg"
+                  )
                 }
                 className={`block rounded-full ${
-                  image === "/assets/nik-owens-40OJLYVWeeM-unsplash.jpg"
+                  image ===
+                  "/assets/restaurant/nik-owens-40OJLYVWeeM-unsplash.jpg"
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
@@ -123,9 +148,13 @@ const Restaurant = () => {
           </section>
         </article>
         <article className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
-          <img
-            src="/assets/redcharlie-redcharlie1-t-7KEq9M0b0-unsplash.jpg"
-            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
+          <Image
+            src="/assets/restaurant/redcharlie-redcharlie1-t-7KEq9M0b0-unsplash.jpg"
+            className=" lg:mt-0 mt-32 lg:mb-0 mb-10  shadow-grey shadow-md xl:ml-12"
+            // lg:h-4/5 lg:w-2/5 sm:w-2/3 w-full
+            width={600}
+            height={600}
+            alt="Head chef"
           />
           <section className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
             <header className=" text-xl lg:static absolute top-0 left-0">
@@ -176,15 +205,21 @@ const Restaurant = () => {
               the palates of our discerning guests.
             </span>
           </section>
-          <img
-            src="/assets/elevate-iv6yNy7oBqQ-unsplash.jpg"
-            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
+          <Image
+            src="/assets/restaurant/elevate-iv6yNy7oBqQ-unsplash.jpg"
+            className=" lg:mt-0 mt-32 ml-5 lg:mb-0 mb-10  shadow-grey shadow-md xl:ml-12"
+            width={540}
+            height={500}
+            alt="chefs team"
           />
         </article>
         <article className="flex lg:flex-row lg:h-screen items-start flex-col h-auto 2xl:px-32 px-0 relative">
-          <img
-            src="/assets/rumman-amin-X39jZ5OqRmk-unsplash.jpg"
-            className="lg:h-4/5 lg:w-2/5 lg:mt-0 mt-32 lg:mb-0 mb-10 sm:w-2/3 w-full shadow-grey shadow-md xl:ml-12"
+          <Image
+            src="/assets/restaurant/rumman-amin-X39jZ5OqRmk-unsplash.jpg"
+            width={540}
+            height={500}
+            alt="waitstaff"
+            className=" lg:mt-0 mt-32 lg:mb-0 mb-10   shadow-grey shadow-md xl:ml-12"
           />
           <section className="flex flex-col text-grey font-normal font-poppins lg:w-1/2 w-full gap-5 lg:pl-20 pl-0">
             <header className=" text-xl lg:static absolute top-0 left-0">

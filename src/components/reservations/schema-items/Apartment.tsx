@@ -27,7 +27,7 @@ const Apartment: FC<{ id: string; number: string; status: string }> = (
               price: 120,
               description:
                 "The apartment in Sapphire Palace is an ideal option for guests who are looking for spacious and luxurious accommodation. The apartment is fully equipped with all necessary amenities, including air conditioning, a flat-screen TV with satellite channels, and a desk with a chair. The apartment also has a large bathroom with a shower, a hairdryer, and a complimentary set of toiletries. Additionally, the apartment has a large balcony with beautiful views of the Mediterranean Sea, which is an ideal place to relax and admire the surroundings.",
-              img: "/assets/bedroom-g12e25ce3a_1920.jpg",
+              img: "/assets/rooms/bedroom-g12e25ce3a_1920.jpg",
             })
           )
         }

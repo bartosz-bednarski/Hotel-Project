@@ -46,13 +46,14 @@ module.exports = {
         "hero-cuisine": "url('/assets/happy-birthday-g095e1e6fa_1920.jpg')",
         "hero-rooms": "url('/assets/to-travel-g04925ceb0_1920.jpg')",
         "hero-beach": "url('/assets/seashore-gcfe15f0fd_1920.jpg')",
-        "hero-rooms": "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
+        "hero-rooms": "url('/assets/rooms/bedroom-g12e25ce3a_1920.jpg')",
         "hero-rooms-2": "url('/assets/bed-g3bdefde0c_1920.jpg')",
         "single-room": "url('/assets/bedroom-g57f6bfa9e_1920.jpg')",
         "king-room": "url('/assets/hotel-room-g39ed91d20_1920.jpg')",
         "double-room": "url('/assets/pexels-max-rahubovskiy-7546724.jpg')",
         reception: "url('/assets/lobby-g165055a51_1920.jpg')",
-        restaurant: "url('/assets/louis-hansel-LIJujhJviMI-unsplash.jpg')",
+        restaurant:
+          "url('/assets/restaurant/louis-hansel-LIJujhJviMI-unsplash.jpg')",
 
         apartment: "url('/assets/bedroom-g12e25ce3a_1920.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

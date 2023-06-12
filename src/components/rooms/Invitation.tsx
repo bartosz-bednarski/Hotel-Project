@@ -1,9 +1,16 @@
+import Image from "next/image";
 const Invitation = () => {
   return (
     <section className="box-border flex flex-col items-center py-10 text-white ">
       <header className="md:text-7xl justify-center  sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
         <span>Sapphire</span>
-        <img src="/assets/logo.svg" className="2xl:w-36 w-12" />
+        <Image
+          src="/assets/logo.svg"
+          className="2xl:w-36 2xl:h-36"
+          alt="logo"
+          width={48}
+          height={48}
+        />
         <span>Palace</span>
       </header>
       <span className=" sm:text-2xl text-base py-10 text-center rounded-2xl w-9/12 font-poppins px-12   bg-aquaButton">

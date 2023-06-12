@@ -1,3 +1,4 @@
+import Image from "next/image";
 const Room: React.FC<{
   img: string;
   title: string;
@@ -6,7 +7,7 @@ const Room: React.FC<{
   price: string;
 }> = (props) => {
   return (
-    <section className="desktop:h-screen box-border flex flex-col h-auto  sm:bg-white  py-16 sm:px-16 px-0 items-center gap-14">
+    <section className="desktop:h-screen box-border flex flex-col h-auto  sm:bg-white  py-16 sm:px-16 px-0 items-center gap-5 mb-20">
       <header className="font-radley sm:text-6xl text-5xl text-gold  w-full text-center py-3">
         {props.title}
       </header>
@@ -14,9 +15,12 @@ const Room: React.FC<{
       <article className="desktop:w-full desktop:bg-transparent desktop:py-0 desktop:rounded-none flex flex-col lg:w-10/12 sm:w-11/12 w-full gap-10 rounded-3xl sm:bg-aquaCard  lg:pt-20 pt-0 pb-16 relative">
         <div className="absolute bg-aquaCard w-11/12 h-full top-12 left-36 rounded-3xl desktop:block hidden" />
         <section className="flex desktop:flex-row desktop:items-start flex-col sm:gap-0 gap-12 z-20 items-center  w-full ">
-          <img
+          <Image
             src={props.img}
-            className=" desktop:h-510px lg:w-4/5 w-full sm:rounded-3xl rounded-none"
+            className="  sm:rounded-3xl rounded-none"
+            width={1000}
+            height={400}
+            alt={`${props.title} image`}
           />
           <span className="text-center sm:pt-20 py-5 desktop:px-12  font-poppins lg:text-xl text-base sm:text-white text-grey font-normal leading-9 desktop:w-1/2 lg:w-3/4 w-full lg:px-0 px-7  ">
             {props.text}
