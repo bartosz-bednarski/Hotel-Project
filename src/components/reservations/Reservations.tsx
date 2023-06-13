@@ -72,7 +72,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
   return (
     <div className="relative box-border flex  xl:h-screen  h-auto w-full">
       <Image
-        src="/assets/lobby-g165055a51_1920.jpg"
+        src="/assets/home/lobby-g165055a51_1920.jpg"
         alt="reception background image"
         fill={true}
         style={{ objectFit: "fill" }}
