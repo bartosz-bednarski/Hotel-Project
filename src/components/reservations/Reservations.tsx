@@ -76,6 +76,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
         alt="reception background image"
         fill={true}
         style={{ objectFit: "fill" }}
+        priority={true}
       />
       <div className="z-10 box-border bg-black bg-opacity-20 h-auto md:pb-0 pb-8 xl:pt-0 pt-8 flex flex-col w-full">
         <main className=" flex-col xl:h-screen xl:py-0 xl:px-32 md:px-12 box-border w-full flex  h-auto mt-20 px-2  justify-center items-center sm:gap-5 xl:gap-12 gap-20  text-white">
@@ -138,6 +139,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                       height={96}
                       width={96}
                       alt={`${room.type} image`}
+                      priority={true}
                     />
                   </button>
                 )}

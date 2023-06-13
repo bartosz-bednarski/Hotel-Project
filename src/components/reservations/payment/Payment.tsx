@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { uniqueDates, duplicates, IFormInput } from "@/types/payment";
-
+import Image from "next/image";
 const Payment: FC<{
   onPayment: (uniqueDates: any, duplicates: any) => any;
 }> = (props) => {
@@ -70,8 +70,15 @@ const Payment: FC<{
   const priceTotal =
     (new Date(checkOut).getDate() - new Date(checkIn).getDate()) * room.price;
   return (
-    <main className="flex xl:flex-row flex-col  w-full xl:h-screen h-auto gap-24 py-10  justify-center bg-reception bg-cover">
-      <section className="flex flex-col xl:w-2/5 w-full  h-auto  items-center gap-10 justify-center">
+    <main className="relative flex xl:flex-row flex-col  w-full xl:h-screen h-auto gap-24 py-10  justify-center">
+      <Image
+        src="/assets/home/lobby-g165055a51_1920.jpg"
+        alt="reception"
+        fill={true}
+        style={{ objectFit: "cover" }}
+        priority={true}
+      />
+      <section className="z-10 flex flex-col xl:w-2/5 w-full  h-auto  items-center gap-10 justify-center">
         <header className="2xl:text-7xl justify-end sm:px-0 sm:text-5xl px-4 text-3xl sm:mb-20 mb-10 flex flex-row gap-2 font-radley  text-gold items-center">
           <span>Sapphire</span>
           <img src="/assets/logo.svg" className="2xl:w-20 w-12" />
@@ -162,15 +169,18 @@ const Payment: FC<{
           </button>
         </form>
       </section>
-      <section className="xl:w-3/5 w-full flex flex-col h-full gap-8 items-center justify-end">
+      <section className="z-10 xl:w-3/5 w-full flex flex-col h-full gap-8 items-center justify-end">
         <section className="md:flex hidden flex-col bg-aquaCard h-auto w-9/12 p-7 rounded-xl gap-12 shadow-lg shadow-gray-600">
           <header className="text-4xl text-gold font-poppins font-medium">
             Hotel Card
           </header>
           <div className="flex md:flex-row flex-col justify-between md:items-center">
-            <img
+            <Image
               src="/assets/logo.svg"
-              className="2xl:w-20 w-12 md:block hidden"
+              width={48}
+              height={48}
+              alt="logo"
+              className="2xl:w-20 "
             />
             <div className="flex flex-col gap-4 text-right ">
               <span className="2xl:text-2xl text-lg font-poppins font-normal text-white">
@@ -187,7 +197,13 @@ const Payment: FC<{
             </span>
             <span className="2xl:text-4xl text-2xl justify-center sm:px-0  px-4   flex flex-row gap-2 font-radley  text-gold items-center">
               <span>Sapphire</span>
-              <img src="/assets/logo.svg" className="2xl:w-16 w-12" />
+              <Image
+                src="/assets/logo.svg"
+                width={48}
+                height={48}
+                alt="logo"
+                className="2xl:w-20 "
+              />
               <span>Palace</span>
             </span>
           </div>

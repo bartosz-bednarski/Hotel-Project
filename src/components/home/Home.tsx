@@ -6,22 +6,22 @@ const HOME_HERO = [
   {
     header: "The Sapphire Palace",
     text: "Welcome to Sapphire Palace an exclusive hotel where every detail has been designed with your comfort and relaxation in mind.",
-    background: "bg-hero-main",
+    background: "/assets/home/elba-gd3fdbbea6_1920.jpg",
   },
   {
     header: "Sapphire Palace’s Restaurant",
     text: "Our team of chefs serves exquisite dishes made from the best ingredients, combining traditional flavors with modern culinary techniques.",
-    background: "bg-hero-cuisine",
+    background: "/assets/home/happy-birthday-g095e1e6fa_1920.jpg",
   },
   {
     header: "Sapphire Palace’s Rooms",
     text: "The rooms at Sapphire Palace are the epitome of luxury and elegance. Each one has been designed with the aim of providing maximum comfort and relaxation for our guests. ",
-    background: "bg-hero-rooms",
+    background: "/assets/home/to-travel-g04925ceb0_1920.jpg",
   },
   {
     header: "Sapphire Palace’s Location",
     text: "Sapphire Palace is located in a beautiful area by the Mediterranean Sea, in a place full of Italian climate. Our beach, offers excellent conditions for relaxation and water sports. ",
-    background: "bg-hero-beach",
+    background: "/assets/home/seashore-gcfe15f0fd_1920.jpg",
   },
 ];
 const Home = () => {
@@ -54,10 +54,17 @@ const Home = () => {
   return (
     <div className="box-border flex flex-col w-auto bg-black ">
       <main
-        className={`flex w-auto h-screen z-20 ${HOME_HERO[currentHero].background} bg-cover animate-slider relative`}
+        className={`relative flex w-auto h-screen z-20 bg-cover animate-slider`}
         key={currentHero}
       >
-        <div className="bg-black bg-opacity-20 w-screen h-screen">
+        <Image
+          src={HOME_HERO[currentHero].background}
+          alt={`${HOME_HERO[currentHero].header} image`}
+          style={{ objectFit: "cover" }}
+          fill={true}
+          priority={true}
+        />
+        <div className="bg-black bg-opacity-20 w-screen h-screen z-10">
           <section className="xl:mt-20vh sm:mt-80 mt-0 text-white flex flex-col w-auto items-center text-center font-poppins">
             <header className="xl:text-8xl  text-5xl mt-20  font-playFair">
               {HOME_HERO[currentHero].header}
@@ -78,9 +85,11 @@ const Home = () => {
                   onClick={backButtonHandler}
                   aria-label="backward-button"
                 >
-                  <img
+                  <Image
                     src="/assets/arrow-left.svg"
-                    className="sm:w-auto w-10"
+                    width={40}
+                    height={40}
+                    alt="arrow-right"
                   />
                 </button>
                 <button
@@ -88,9 +97,11 @@ const Home = () => {
                   onClick={forwardButtonHandler}
                   aria-label="forward-button"
                 >
-                  <img
+                  <Image
                     src="/assets/arrow-left.svg"
-                    className="sm:w-auto w-10"
+                    width={40}
+                    height={40}
+                    alt="arrow-left"
                   />
                 </button>
               </span>
@@ -126,9 +137,12 @@ const Home = () => {
       >
         <header className="font-playFair text-gold text-6xl">About us</header>
         <section className="2xl:flex-row 2xl:max-w-none 2xl:gap-16 sm:rounded-r-3xl rounded-b-3xl max-w-4xl bg-lightAquaCard  flex flex-col ">
-          <img
-            src="/assets/lobby-g165055a51_1920.jpg"
-            className="2xl:h-96 w-auto h-auto object-fill"
+          <Image
+            src="/assets/home/lobby-g165055a51_1920.jpg"
+            width={900}
+            height={300}
+            alt="lobby"
+            className="2xl:h-96 "
           />
           <p className="desktop:text-xl flex items-center justify-center text-base text-center desktop:leading-9 leading-7 w-auto p-8">
             At Sapphire Palace, we believe that true luxury is more than just
@@ -156,9 +170,12 @@ const Home = () => {
             beauty treatments. Our staff consists of qualified and experienced
             professionals who are always available to assist our guests.
           </p>
-          <img
-            src="/assets/receptionists-g90e503aff_1920.jpg"
-            className="2xl:h-96 w-auto h-auto object-fill"
+          <Image
+            src="/assets/home/receptionists-g90e503aff_1920.jpg"
+            width={900}
+            height={300}
+            alt="reception"
+            className="2xl:h-96 "
           />
         </section>
         <span className="2xl:w-2/5 2xl:mt-24 sm:px-0 sm:text-2xl px-4 text-grey font-roboto text-lg leading-10 mt-0  w-auto text-center italic">

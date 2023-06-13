@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-
+import Image from "next/image";
 const Redirect = () => {
   const router = useRouter();
   useEffect(() => {
@@ -18,7 +18,13 @@ const Redirect = () => {
       </span>
       <span className="2xl:text-4xl text-2xl justify-center sm:px-0  px-4   flex flex-row gap-2 font-radley  text-gold items-center">
         <span>Sapphire</span>
-        <img src="/assets/logo.svg" className="2xl:w-16 w-12" />
+        <Image
+          src="/assets/logo.svg"
+          width={48}
+          height={48}
+          alt="logo"
+          className="2xl:w-20 "
+        />
         <span>Palace</span>
       </span>
     </div>

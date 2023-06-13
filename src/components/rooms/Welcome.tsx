@@ -10,6 +10,7 @@ const Welcome = () => {
         fill={true}
         style={{ objectFit: "cover" }}
         alt="background"
+        priority={true}
       />
       <div className="box-border bg-black w-full bg-opacity-20 h-auto flex flex-col z-10">
         <div className="box-border flex flex-col w-full h-screen pt-40 justify-center items-center gap-12 sm:px-32 px-12 text-white text-center pb-36">

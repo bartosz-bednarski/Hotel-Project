@@ -13,6 +13,7 @@ const Restaurant = () => {
           fill={true}
           style={{ objectFit: "cover" }}
           alt="restaurant background image"
+          priority={true}
         />
         <div className="box-border z-10 bg-black bg-opacity-20  h-screen flex flex-col text-white justify-center items-center px-10 text-center gap-40">
           <header className="z-10 lg:px-64 font-playFair xl:text-8xl sm:mt-32 text-5xl">
@@ -32,6 +33,7 @@ const Restaurant = () => {
               width={800}
               height={800}
               className=" bg-cover shadow-grey shadow-md"
+              priority={true}
               // h-4/6 w-full
             />
             <div className="flex flex-row gap-5 mx-auto">
