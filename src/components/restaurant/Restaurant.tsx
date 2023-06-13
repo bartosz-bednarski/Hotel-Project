@@ -34,7 +34,6 @@ const Restaurant = () => {
               height={800}
               className=" bg-cover shadow-grey shadow-md"
               priority={true}
-              // h-4/6 w-full
             />
             <div className="flex flex-row gap-5 mx-auto">
               <button
@@ -49,6 +48,7 @@ const Restaurant = () => {
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
+                role="button"
               />
               <button
                 onClick={() =>
@@ -62,6 +62,7 @@ const Restaurant = () => {
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
+                role="button"
               />
               <button
                 onClick={() =>
@@ -75,6 +76,7 @@ const Restaurant = () => {
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
+                role="button"
               />
               <button
                 onClick={() =>
@@ -101,6 +103,7 @@ const Restaurant = () => {
                     ? "bg-gold"
                     : "bg-grey"
                 }  h-5 w-5`}
+                role="button"
               />
             </div>
           </section>

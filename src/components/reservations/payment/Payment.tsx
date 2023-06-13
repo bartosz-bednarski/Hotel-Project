@@ -164,6 +164,7 @@ const Payment: FC<{
           <button
             className="bg-aquaButton py-3 px-4 w-3/4 text-white font-poppins text-xl font-normal rounded-3xl shadow-sm"
             type="submit"
+            role="button"
           >
             Pay now
           </button>

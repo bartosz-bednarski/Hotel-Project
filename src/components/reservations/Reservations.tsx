@@ -104,7 +104,10 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
               <section className="flex sm:flex-row flex-col relative w-full  gap-4 ">
                 <div className="bg-aquaButton flex flex-col sm:w-full w-full px-6 rounded-3xl justify-center  ">
                   {showCalendar && (
-                    <button className="bg-aquaButton flex rounded-3xl w-full absolute top-0 left-0">
+                    <button
+                      className="bg-aquaButton flex rounded-3xl w-full absolute top-0 left-0"
+                      role="button"
+                    >
                       <Calendar
                         onChange={onChange}
                         value={value}
@@ -133,6 +136,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                   <button
                     className="bg-aquaButton flex justify-center items-center  w-full px-10 rounded-3xl hover:cursor-pointer"
                     onClick={() => setShowCalendar(true)}
+                    role="button"
                   >
                     <Image
                       src="/assets/calendar-regular-240.png"
@@ -167,6 +171,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                   } h-min py-3 px-6 rounded-xl text-white `}
                   disabled={redirectToReservation}
                   onClick={() => router.push("/reservations/payment")}
+                  role="button"
                 >
                   Reservation
                 </button>

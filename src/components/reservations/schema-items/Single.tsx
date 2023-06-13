@@ -8,7 +8,7 @@ const Single: FC<{ id: string; number: string; status: string }> = (props) => {
   const dispatch = useAppDispatch();
   return (
     <>
-      <span
+      <button
         className={`xl:w-4vw xl:h-2vw w-8vw h-4vw ${
           props.status === "free"
             ? "bg-aquaButton"
@@ -27,6 +27,7 @@ const Single: FC<{ id: string; number: string; status: string }> = (props) => {
             })
           )
         }
+        role="button"
       />
     </>
   );

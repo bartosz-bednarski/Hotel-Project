@@ -84,6 +84,7 @@ const Home = () => {
                 <button
                   onClick={backButtonHandler}
                   aria-label="backward-button"
+                  role="button"
                 >
                   <Image
                     src="/assets/arrow-left.svg"
@@ -96,6 +97,7 @@ const Home = () => {
                   className="rotate-180"
                   onClick={forwardButtonHandler}
                   aria-label="forward-button"
+                  role="button"
                 >
                   <Image
                     src="/assets/arrow-left.svg"

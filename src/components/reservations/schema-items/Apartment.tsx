@@ -12,7 +12,7 @@ const Apartment: FC<{ id: string; number: string; status: string }> = (
 
   return (
     <>
-      <div
+      <button
         className={`xl:w-12vw xl:h-2vw w-24vw h-4vw ${
           props.status === "free"
             ? "bg-aquaButton"
@@ -31,6 +31,7 @@ const Apartment: FC<{ id: string; number: string; status: string }> = (
             })
           )
         }
+        role="button"
       />
     </>
   );

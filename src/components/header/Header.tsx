@@ -18,14 +18,22 @@ const Header = () => {
             listShown ? "justify-between" : "justify-end"
           } `}
         >
-          <img
+          <Image
             src="/assets/logo.svg"
-            className={`${listShown ? "w-8 block" : "hidden"}`}
+            className={`${listShown ? "block" : "hidden"}`}
+            width={42}
+            height={42}
+            alt="logo"
+            priority={true}
           />
-          <img
+          <Image
             src="/assets/bx-menu.svg"
-            className="w-10 hover:cursor-pointer"
+            className="hover:cursor-pointer"
             onClick={() => setListShown(!listShown)}
+            width={40}
+            height={40}
+            alt="hamburger button"
+            priority={true}
           />
         </span>
         <ul className={`${listShown ? "pr-1 block" : "hidden"}`}>
@@ -58,7 +66,6 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        {/* <img src="/assets/logo.svg" className="w-20 h-20 " /> */}
         <ul className={`${listShown ? "pr-1 block" : "hidden"}`}>
           <li className="pb-2  ">Services</li>
 
@@ -106,7 +113,13 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        <Image src="/assets/logo.svg" width={80} height={80} alt="Hotel Logo" />
+        <Image
+          src="/assets/logo.svg"
+          width={80}
+          height={80}
+          alt="Hotel Logo"
+          priority={true}
+        />
         <ul className=" desktop:gap-28 xl:gap-20 gap-12 flex flex-row list-none w-4/12 justify-start">
           <li>Services</li>
           <li>

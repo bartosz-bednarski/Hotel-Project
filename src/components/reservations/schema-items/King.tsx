@@ -11,7 +11,7 @@ const King: React.FC<{ id: string; number: string; status: string }> = (
 
   return (
     <>
-      <span
+      <button
         className={`xl:w-6vw xl:h-2vw w-12vw h-4vw ${
           props.status === "free"
             ? "bg-aquaButton"
@@ -30,6 +30,7 @@ const King: React.FC<{ id: string; number: string; status: string }> = (
             })
           )
         }
+        role="button"
       />
     </>
   );

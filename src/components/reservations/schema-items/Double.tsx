@@ -9,7 +9,7 @@ const Double: FC<{ id: string; number: string; status: string }> = (props) => {
 
   return (
     <>
-      <span
+      <button
         className={`xl:w-2vw xl:h-6vw w-4vw h-12vw ${
           props.status === "free"
             ? "bg-aquaButton"
@@ -28,6 +28,7 @@ const Double: FC<{ id: string; number: string; status: string }> = (props) => {
             })
           )
         }
+        role="button"
       />
     </>
   );

@@ -43,7 +43,6 @@ const Rooms: FC = () => {
     <main className="box-border h-auto w-full flex flex-col ">
       <Welcome />
       <Invitation />
-      {/* <Reservations onReservations={props.onReservations} /> */}
       {ROOMS_OFERT.map((item) => {
         return (
           <Room
