@@ -28,7 +28,7 @@ const Double: FC<{ id: string; number: string; status: string }> = (props) => {
             })
           )
         }
-        role="button"
+        role="button-room"
       />
     </>
   );

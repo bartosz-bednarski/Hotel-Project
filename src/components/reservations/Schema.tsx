@@ -40,12 +40,10 @@ const Schema = () => {
     (room) => room.reservationsReducer.roomsForSchema
   );
 
-  console.log(ROOMS);
-
   // const selection = roomsArr.find((item) => item.id);
   // console.log(selection);
 
-  console.log(ROOMS.find((item) => item.id === "single-06"));
+  // console.log(ROOMS.find((item) => item.id === "single-06"));
   return (
     <div className="sm:px-10 flex bg-schemaBackgound relative px-5 py-11 h-auto rounded-3xl w-min justify-center">
       <div className="flex flex-col w-auto">

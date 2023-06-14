@@ -30,7 +30,7 @@ const King: React.FC<{ id: string; number: string; status: string }> = (
             })
           )
         }
-        role="button"
+        role="button-room"
       />
     </>
   );

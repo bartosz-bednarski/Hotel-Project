@@ -27,7 +27,7 @@ const Single: FC<{ id: string; number: string; status: string }> = (props) => {
             })
           )
         }
-        role="button"
+        role={`button-room-${props.number}`}
       />
     </>
   );

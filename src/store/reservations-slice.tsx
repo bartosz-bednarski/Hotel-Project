@@ -146,12 +146,15 @@ const reservations = createSlice({
     setActualReservationsForDateRange(state, action) {
       state.actualReservationsForDateRange = action.payload.body;
       const allRooms = [];
-      for (let i = 0; i < action.payload.body.length; i++) {
-        action.payload.body[i].rooms;
-        for (let j = 0; j < action.payload.body[i].rooms.length; j++) {
-          allRooms.push(action.payload.body[i].rooms[j].id);
+      if (action.payload.body) {
+        for (let i = 0; i < action.payload.body.length; i++) {
+          action.payload.body[i].rooms;
+          for (let j = 0; j < action.payload.body[i].rooms.length; j++) {
+            allRooms.push(action.payload.body[i].rooms[j].id);
+          }
         }
       }
+
       const uniq = allRooms.filter(
         (value, index, array) => array.indexOf(value) === index
       );

@@ -48,9 +48,9 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
     }
     const getData = async (datesRange: Date[]) => {
       const setData = await props.onReservations(datesRange);
-      dispatch(
-        reservationActions.setActualReservationsForDateRange(await setData)
-      );
+      if (setData) {
+        dispatch(reservationActions.setActualReservationsForDateRange(setData));
+      }
     };
     getData(datesRange);
   }, [value]);
@@ -65,10 +65,8 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
     ) {
       setRedirectToReservation(false);
     }
-    console.log(redirectToReservation);
   }, [checkIn, checkOut, room]);
-  console.log(checkIn, checkOut);
-  console.log(value);
+
   return (
     <div className="relative box-border flex  xl:h-screen  h-auto w-full">
       <Image
@@ -104,9 +102,9 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
               <section className="flex sm:flex-row flex-col relative w-full  gap-4 ">
                 <div className="bg-aquaButton flex flex-col sm:w-full w-full px-6 rounded-3xl justify-center  ">
                   {showCalendar && (
-                    <button
+                    <span
                       className="bg-aquaButton flex rounded-3xl w-full absolute top-0 left-0"
-                      role="button"
+                      role="button-calendar"
                     >
                       <Calendar
                         onChange={onChange}
@@ -115,7 +113,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                         selectRange={true}
                         minDate={new Date()}
                       />
-                    </button>
+                    </span>
                   )}
                   <time className=" sm:text-4xl desktop:text-4xl xl:text-2xl text-xl  py-2 border-gold border-b-2 text-center ">
                     {checkIn}
@@ -136,7 +134,7 @@ const Reservations: FC<{ onReservations: (value: Date[]) => any }> = (
                   <button
                     className="bg-aquaButton flex justify-center items-center  w-full px-10 rounded-3xl hover:cursor-pointer"
                     onClick={() => setShowCalendar(true)}
-                    role="button"
+                    role="button-open-calendar"
                   >
                     <Image
                       src="/assets/calendar-regular-240.png"

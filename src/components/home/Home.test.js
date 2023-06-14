@@ -1,6 +1,12 @@
 import Home from "./Home";
+
 import "@testing-library/jest-dom";
-const { render, screen, fireEvent } = require("@testing-library/react");
+const {
+  render,
+  screen,
+  fireEvent,
+  getByText,
+} = require("@testing-library/react");
 jest.mock("next/router", () => require("next-router-mock"));
 describe("Home element", () => {
   test("'backward' button changes slide on click", () => {

@@ -31,7 +31,7 @@ const Apartment: FC<{ id: string; number: string; status: string }> = (
             })
           )
         }
-        role="button"
+        role="button-room"
       />
     </>
   );
